@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>RimDota</name>
+
+	<author>为什么不问问神奇的海螺呢</author>
+
+	<packageId>magicconch.rimdota</packageId> <!-- 唯一标识：英文小写 + 至少一个点，会写进玩家存档的 Mod 列表，发布后不宜再改 -->
+
+	<description>一个已配置好 C# 开发环境（.NET Framework 4.7.2 + Harmony）的 RimWorld 功能 Mod 模板。发布前请替换为你的 Mod 描述。</description>
+
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+</ModMetaData>

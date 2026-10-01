@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 示例 HediffDef。可安全删除或替换为你自己的内容。 -->
+	<HediffDef>
+		<defName>Dota_ExampleBuff</defName>
+		<label>示例 buff</label>
+		<description>由 RimDota 添加的示例 buff，可安全删除。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="RimDota.HediffCompProperties_DotaExample" />
+		</comps>
+	</HediffDef>
+</Defs>
