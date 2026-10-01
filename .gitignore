@@ -481,3 +481,7 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# RimDota：编译产物与热重载工具（由 dotnet build 生成，不入库）
+Assemblies/*.dll
+Assemblies/*.pdb

@@ -5,4 +5,4 @@ To start developing after setting names for your project, create an empty soluti
 When publishing, make sure to not include the auto-generated obj, bin and .vs folders. Those contain large local cache files with contents specific to the computer they were generated on. The Publisher Plus mod provides an in-game dialog to easily exclude folders.
 
 
-TestChange
+
