@@ -3,3 +3,6 @@ This folder does not get loaded by the game. Instead it's here for development o
 To start developing after setting names for your project, create an empty solution in this folder using an IDE of your choice and add the csproj through the add existing project dialog. Recommended IDEs are JetBrains Rider or Microsoft Visual Studio Community Edition. Both are free. References to RimWorld and Harmony, as well as correct output settings are already set. When installing VS for the first time, pick the .NET desktop development option. Rider does not need any additional packages, but RimWorld centered plugins by gareth parker and zetrith might end up useful.  
   
 When publishing, make sure to not include the auto-generated obj, bin and .vs folders. Those contain large local cache files with contents specific to the computer they were generated on. The Publisher Plus mod provides an in-game dialog to easily exclude folders.
+
+
+TestChange
