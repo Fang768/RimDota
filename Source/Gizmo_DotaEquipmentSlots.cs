@@ -8,8 +8,13 @@ namespace RimDota;
 /// <summary>
 /// Dota 六格装备栏 UI，排在 Dota 属性栏旁边。
 /// </summary>
+[StaticConstructorOnStartup]
 public class Gizmo_DotaEquipmentSlots : Gizmo
 {
+	private static readonly Texture2D LockedOverlay = ContentFinder<Texture2D>.Get(
+		"UI/Icons/Dota/DotaEquipmentLockedOverlay",
+		reportFailure: false);
+
 	private const float SlotSize = 30f;
 	private const float Gap = 5f;
 	private const float Width = 120f;
@@ -59,15 +64,30 @@ public class Gizmo_DotaEquipmentSlots : Gizmo
 			}
 
 			GUI.DrawTexture(slot, item.def.uiIcon, ScaleMode.ScaleToFit);
-			TooltipHandler.TipRegion(slot, item.LabelCap + "\n" + item.DescriptionDetailed);
+			bool locked = DotaEquipmentLockUtility.IsLocked(item);
+			if (locked && LockedOverlay != null)
+			{
+				GUI.DrawTexture(slot, LockedOverlay, ScaleMode.ScaleToFit);
+			}
+
+			string tooltip = item.LabelCap + "\n" + item.DescriptionDetailed;
+			if (locked)
+			{
+				tooltip += "\n\n已锁定：不参与自动合成。";
+			}
+			TooltipHandler.TipRegion(slot, tooltip);
 
 			if (Widgets.ButtonInvisible(slot))
 			{
-				Find.WindowStack.Add(new FloatMenu(new List<FloatMenuOption>
+				List<FloatMenuOption> options = new List<FloatMenuOption>
 				{
-					new FloatMenuOption("卸下 " + item.LabelCap, () => comp.TryUnequip(item)),
+					locked
+						? new FloatMenuOption("解锁（允许自动合成）", () => comp.TrySetLocked(item, false))
+						: new FloatMenuOption("锁定（不参与自动合成）", () => comp.TrySetLocked(item, true)),
+					new FloatMenuOption("丢下 " + item.LabelCap, () => comp.TryUnequip(item)),
 					new FloatMenuOption("查看信息", () => Find.WindowStack.Add(new Dialog_InfoCard(item)))
-				}));
+				};
+				Find.WindowStack.Add(new FloatMenu(options));
 			}
 		}
 

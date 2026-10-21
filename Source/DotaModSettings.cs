@@ -7,26 +7,26 @@ namespace RimDota;
 /// </summary>
 public class DotaModSettings : ModSettings
 {
-	public const float DefaultRegenBalanceScale = 1f;
+	public const float DefaultHealthRegenBalanceScale = 0.2f;
 
-	private float regenBalanceScale = DefaultRegenBalanceScale;
+	private float healthRegenBalanceScale = DefaultHealthRegenBalanceScale;
 
 	/// <summary>
-	/// Dota 每秒回复的平衡系数。1 表示使用 Dota 2 原始速度。
+	/// Dota 生命回复的平衡系数，仅影响实际结算，不影响 UI 和装备描述。
 	/// </summary>
-	public float RegenBalanceScale
+	public float HealthRegenBalanceScale
 	{
-		get => regenBalanceScale;
-		set => regenBalanceScale = value < 0f ? 0f : (value > 5f ? 5f : value);
+		get => healthRegenBalanceScale;
+		set => healthRegenBalanceScale = value < 0f ? 0f : (value > 5f ? 5f : value);
 	}
 
 	public override void ExposeData()
 	{
 		base.ExposeData();
 		Scribe_Values.Look(
-			ref regenBalanceScale,
-			"regenBalanceScale",
-			DefaultRegenBalanceScale);
-		RegenBalanceScale = regenBalanceScale;
+			ref healthRegenBalanceScale,
+			"healthRegenBalanceScale",
+			DefaultHealthRegenBalanceScale);
+		HealthRegenBalanceScale = healthRegenBalanceScale;
 	}
 }

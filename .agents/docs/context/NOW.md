@@ -1,6 +1,6 @@
 # 当前状态（NOW）
 
-> 最后更新：2026-10-21（Dota 回复改为每秒并加入 Mod 平衡设置）。
+> 最后更新：2026-10-21（装备锁定与自动合成）。
 
 ## 目标
 - 本次任务：把 RimDota 建成框架 Mod，已落地 DotaHero 隐藏标记、三维属性（力量/敏捷/智力）、法力值蓝条、装备加成“双层”数据模型，以及基础科技树/建筑/物品。
@@ -15,7 +15,8 @@
 ## 进展（证据）
 - DotaHero 隐藏标记：`Defs/HediffDefs/Hediffs.xml`（`hediffClass=RimDota.Hediff_DotaHero`，Visible=false）+ `Source/Hediff_DotaHero.cs` 的 `HediffComp_DotaHero`。
 - 三维属性与派生数值（`Source/Hediff_DotaHero.cs`）：力量/敏捷/智力初始 20/20/20；力量→生命上限 +2%/点、回血 +0.1/点/秒；敏捷→Dota 护甲 1/6 点/敏捷、瞄准/攻速 -0.5%/点；智力→法力上限 +5/点、回蓝 +0.05/点/秒、魔抗 +0.1%/点、心灵敏感度 +2%/点。所有派生值均为“属性贡献 + 装备贡献”，Bonus* 与新增字段默认 0 且入存档。
-- 回复换算与平衡（`Source/DotaModSettings.cs` + `Source/RimDotaMod.cs`）：生命/法力回复核心单位统一为“点/秒”，每 15 tick 按 `回复/秒 × 15 / 60` 累积；最终回复统一乘 `RegenBalanceScale`（默认 1.0、范围 0–5）。“RimDota” Mod 设置中提供滑条，设置持久化；`1.0` 表示完全采用 Dota 2 原始速度。
+- 回复换算与平衡（`Source/DotaModSettings.cs` + `Source/RimDotaMod.cs`）：生命/法力回复核心单位统一为“点/秒”，每 15 tick 按 `回复/秒 × 15 / 60` 累积。`HealthRegenBalanceScale`（默认 0.2、范围 0–5）只乘到实际生命回复结算，不改变装备描述或属性栏显示的原始值，也不影响法力回复；设置持久化。
+- 装备锁定与自动合成（2026-10-21）：`Source/Comp_DotaEquipmentLock.cs` 为每件装备保存 `locked` 状态，锁定装备不参与合成；`Source/Gizmo_DotaEquipmentSlots.cs` 右键菜单按状态显示锁定/解锁，并在锁定装备上覆盖 `Textures/UI/Icons/Dota/DotaEquipmentLockedOverlay.png`（透明背景、右下角锁形占位，后续可用 AI 替换同名资源）。`Source/DotaCombineRecipeDef.cs` + `Defs/DotaCombineRecipes/DotaCombineRecipes.xml` 提供配方数据；`HediffComp_DotaInventory.TryAutoCombine()` 在装备、解锁和读档后按槽位 1→6 扫描，选择最早完成的配方，同格完成时比较实际材料槽位序列，再以 defName 决胜；结果放入最早消耗槽并循环合成。首个配方：吸血面具 + 阔剑 → 疯狂面具（`Dota_MaskOfMadness`，当前接入 +24% 攻击吸血；白/红对半圆形占位图标）。
 - Dota 属性栏 `Source/Gizmo_DotaAttributes.cs`（原 `Gizmo_DotaMana.cs`）：宽 230；“法力”标签在蓝条左侧；顶部三组“属性图标 + 当前值 + 成长（Tiny 灰字）”；蓝条居中显示“当前值/上限”；悬停 tooltip 展示完整换算。占位图标为 `Textures/UI/Icons/Dota/{Strength,Agility,Intelligence}.png`（32×32 红/绿/蓝圆点）。主属性枚举 `Source/DotaPrimaryAttribute.cs`（力量/敏捷/智力/全才）挂在 `HediffCompProperties_DotaHero.primaryAttribute`，默认全才；主属性对应数值用其颜色显示（力量红/敏捷绿/智力蓝），全才三色齐亮，其余默认白。
 - 调试入口 `Source/DotaHeroDebugActions.cs`：Dev 模式 → 右键小人 → Pawns → “设为/移除 Dota 英雄（选中）”“查看 Dota 英雄属性”。
 - Harmony 补丁 `Source/HarmonyPatches.cs`：`BodyPartDef.GetMaxHealth` 后置乘 HealthScaleMult 并向上取整（生命上限实际生效、无小数）；另有一次性示例日志补丁。
@@ -30,7 +31,7 @@
 - Dota 六格装备栏（2026-10-21）：`Source/HediffComp_DotaInventory.cs` 用独立 `ThingOwner<Thing>` 保存最多 6 件装备，装备不进入 `WornApparel`；`Source/Gizmo_DotaEquipmentSlots.cs` 按 3×2 显示六格（前三格在上、后三格在下）；`Source/FloatMenuOptionProvider_DotaEquip.cs` 支持右键地面装备，满 6 件显示“Dota 装备栏已满”，不可达时显示“无法到达 Dota 装备”，可达时通过 `JobDriver_DotaEquip` 让小人寻路到物品旁再装备；`HediffComp_DotaHero.EquippedBonus` 从六件装备汇总；死亡按用户要求不掉落（销毁），手动移除英雄会掉出。2026-10-21 重构：Dota 装备改为普通 ThingWithComps（DotaItemBase + DotaEquipmentExtension），删除 DotaGear 层与 Wear/隐藏 Wear 补丁；旧存档如仍有 WornApparel 装备，需要先用上一版迁移。
 
 ## 阻塞 / 待确认
-- StatPart 接线、回血池、32 件基础组件、伤害系统与六格装备栏已完成（XML + C#），但尚未游戏内验证：需确认 3×2 六格 UI、远处右键后寻路装备、不可达禁用、满 6 件拒绝、属性汇总、死亡/移除生命周期、物理/法术减伤、通用减伤、攻击/技能吸血、多伤口回血结算，以及日志无红字。
+- StatPart 接线、回血池、32 件基础组件、伤害系统、六格装备栏、装备锁定与自动合成已完成（XML + C#），但尚未游戏内验证：需确认 3×2 六格 UI、远处右键后寻路装备、锁定遮罩与互斥菜单、锁定材料排除、吸血面具 + 阔剑合成疯狂面具、多个配方时的槽位顺序、满 6 件拒绝、属性汇总、死亡/移除生命周期、物理/法术减伤、通用减伤、攻击/技能吸血、多伤口回血结算，以及日志无红字。
 - 属性图标：已决定暂用红/绿/蓝占位圆点；真图标已定位到本机 Dota 2 VPK（`panorama/images/primary_attribute_icons/primary_attribute_icon_{strength,agility,intelligence}_psd.vtex_c` 等），为 Valve 编译纹理（BinaryKV3 + BC 压缩），待后续写 VTex 解码器或找 PNG 镜像，发布前需替换（Valve 版权）。
 - 属性成长值（growth）字段已建，全部为 0；等级/经验/成长系统未做。
 

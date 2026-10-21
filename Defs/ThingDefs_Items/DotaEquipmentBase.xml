@@ -32,6 +32,7 @@
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Forbiddable" />
+			<li Class="RimDota.CompProperties_DotaEquipmentLock" />
 		</comps>
 		<modExtensions>
 			<li Class="RimDota.DotaEquipmentExtension" />

@@ -81,4 +81,21 @@
 			<DotaStrengthBonus>5</DotaStrengthBonus>
 		</equippedStatOffsets>
 	</ThingDef>
+
+	<ThingDef ParentName="DotaItemBase">
+		<defName>Dota_MaskOfMadness</defName>
+		<label>疯狂面具</label>
+		<description>Dota 2 的合成装备，提供 +24% 攻击吸血。原效果：+20 攻击力；主动“狂怒”持续 6 秒，提供 +100 攻击速度、近战 +12%/远程 +8% 移动速度和 +30% 减速抗性，但降低 7 点护甲并被沉默；冷却 16 秒，消耗 25 点法力（攻击力与主动效果待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaMaskOfMadness</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.5</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaAttackLifesteal>0.24</DotaAttackLifesteal>
+		</equippedStatOffsets>
+	</ThingDef>
 </Defs>

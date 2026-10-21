@@ -237,11 +237,14 @@ public class HediffComp_DotaHero : HediffComp
 	/// <summary>最终增加的生命上限（百分比点数）：力量 ×2 + 装备扁平/10。</summary>
 	public float FinalMaxHealthBonusPercent => (HealthScaleMult - 1f) * 100f;
 
-	/// <summary>最终生命回复（点/秒）=（力量部分 + 装备部分）× 平衡系数。</summary>
-	public float HealthRegenPerSecond => (HealthRegenFromStrength
+	/// <summary>显示用生命回复（点/秒）= 力量部分 + 装备部分，不受平衡系数影响。</summary>
+	public float HealthRegenPerSecond => HealthRegenFromStrength
 		+ bonusHealthRegen
-		+ EquippedBonus(DotaDefOf.DotaHealthRegenBonus))
-		* RimDotaMod.Settings.RegenBalanceScale;
+		+ EquippedBonus(DotaDefOf.DotaHealthRegenBonus);
+
+	/// <summary>实际结算的生命回复（点/秒）= 显示值 × 生命回复平衡系数。</summary>
+	public float ActualHealthRegenPerSecond => HealthRegenPerSecond
+		* RimDotaMod.Settings.HealthRegenBalanceScale;
 
 	/// <summary>最终 Dota 护甲点数 = 敏捷/6 + 装备护甲 + 其他加成。</summary>
 	public float ArmorPoints => ArmorFromAgility + bonusArmor + EquippedBonus(DotaDefOf.DotaArmorBonus);
@@ -285,11 +288,10 @@ public class HediffComp_DotaHero : HediffComp
 	/// <summary>最终法力上限 = 基础 200 + 智力部分 + 装备部分。</summary>
 	public float MaxMana => BaseMana + MaxManaFromIntelligence + bonusMaxMana + EquippedBonus(DotaDefOf.DotaMaxManaBonus);
 
-	/// <summary>最终法力回复（点/秒）=（智力部分 + 装备部分）× 平衡系数。</summary>
-	public float ManaRegenPerSecond => (ManaRegenFromIntelligence
+	/// <summary>最终法力回复（点/秒）= 智力部分 + 装备部分，不受生命回复系数影响。</summary>
+	public float ManaRegenPerSecond => ManaRegenFromIntelligence
 		+ bonusManaRegen
-		+ EquippedBonus(DotaDefOf.DotaManaRegenBonus))
-		* RimDotaMod.Settings.RegenBalanceScale;
+		+ EquippedBonus(DotaDefOf.DotaManaRegenBonus);
 
 	/// <summary>最终心灵敏感度加成 = 智力部分 + 装备部分。</summary>
 	public float PsychicBonus => PsychicFromIntelligence + bonusPsychic;
@@ -343,7 +345,7 @@ public class HediffComp_DotaHero : HediffComp
 			Mana += ManaRegenPerSecond / 60f * RegenIntervalTicks;
 		}
 
-		AddHealing(HealthRegenPerSecond / 60f * RegenIntervalTicks);
+		AddHealing(ActualHealthRegenPerSecond / 60f * RegenIntervalTicks);
 		SettlePendingHealing();
 	}
 

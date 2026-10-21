@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DotaCombineRecipeDef Class="RimDota.DotaCombineRecipeDef">
+		<defName>DotaCombine_MaskOfMadness</defName>
+		<result>Dota_MaskOfMadness</result>
+		<ingredients>
+			<Dota_MorbidMask>1</Dota_MorbidMask>
+			<Dota_Broadsword>1</Dota_Broadsword>
+		</ingredients>
+	</DotaCombineRecipeDef>
+</Defs>

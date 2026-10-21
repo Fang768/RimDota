@@ -53,17 +53,17 @@ public class RimDotaMod : Mod
 		listing.Gap(6f);
 
 		listing.Label(
-			"回复平衡系数：" + Settings.RegenBalanceScale.ToString("0.00"));
+			"生命回复平衡系数：" + Settings.HealthRegenBalanceScale.ToString("0.00"));
 		float scale = listing.Slider(
-			Settings.RegenBalanceScale,
+			Settings.HealthRegenBalanceScale,
 			0f,
 			5f);
-		Settings.RegenBalanceScale = Mathf.Round(scale * 100f) / 100f;
+		Settings.HealthRegenBalanceScale = Mathf.Round(scale * 100f) / 100f;
 
 		listing.Gap(4f);
 		listing.Label(
-			"1.00 = 完全使用 Dota 2 原始回复速度。\n"
-			+ "所有生命回复和法力回复（属性与装备）都会受到该系数影响。\n"
+			"默认 0.20。该系数只影响实际生命回复结算，\n"
+			+ "不改变装备描述或 Dota 属性栏显示的原始数值；法力回复不受影响。\n"
 			+ "RimWorld 一刻为 1/60 秒，一天为 60,000 tick（正常速度下 1,000 秒）。");
 
 		listing.End();
