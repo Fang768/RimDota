@@ -86,7 +86,27 @@ public class HediffComp_DotaHero : HediffComp
 
 	private float EquippedBonus(StatDef stat)
 	{
-		return Pawn != null ? Pawn.GetStatValue(stat) : 0f;
+		if (Pawn == null)
+		{
+			return 0f;
+		}
+
+		HediffComp_DotaInventory inventory = DotaHeroUtil.GetInventoryComp(Pawn);
+		if (inventory == null)
+		{
+			return 0f;
+		}
+
+		float total = 0f;
+		for (int i = 0; i < inventory.Count; i++)
+		{
+			Thing item = inventory.GetAt(i);
+			if (item != null)
+			{
+				total += StatWorker.StatOffsetFromGear(item, stat);
+			}
+		}
+		return total;
 	}
 
 	public float StrengthGrowth

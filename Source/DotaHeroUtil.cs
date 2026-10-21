@@ -18,6 +18,12 @@ public static class DotaHeroUtil
 		return (hediff as HediffWithComps)?.TryGetComp<HediffComp_DotaHero>();
 	}
 
+	public static HediffComp_DotaInventory GetInventoryComp(Pawn pawn)
+	{
+		Hediff hediff = pawn?.health?.hediffSet?.GetFirstHediffOfDef(DotaDefOf.DotaHero);
+		return (hediff as HediffWithComps)?.TryGetComp<HediffComp_DotaInventory>();
+	}
+
 	public static float GetMana(Pawn pawn)
 	{
 		return GetHeroComp(pawn)?.Mana ?? 0f;

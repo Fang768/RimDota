@@ -19,6 +19,7 @@
 		<hediffClass>RimDota.Hediff_DotaHero</hediffClass>
 		<comps>
 			<li Class="RimDota.HediffCompProperties_DotaHero" />
+			<li Class="RimDota.HediffCompProperties_DotaInventory" />
 		</comps>
 	</HediffDef>
 </Defs>
