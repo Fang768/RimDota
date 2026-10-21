@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ResearchTabDef>
+		<defName>DotaResearchTab</defName>
+		<label>Dota</label>
+		<generalTitle>Dota 科技</generalTitle>
+		<generalDescription>Dota 主题科技的专属研究页。</generalDescription>
+	</ResearchTabDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech1</defName>
+		<label>遗迹研究</label>
+		<description>研究月亮碎片中蕴含的古代知识，解锁 Dota 科技线的第一项。</description>
+		<baseCost>200</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>0</researchViewX>
+		<researchViewY>2</researchViewY>
+		<requiredAnalyzed>
+			<li>DotaRelicFragment</li>
+		</requiredAnalyzed>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_Attributes</defName>
+		<label>基础属性</label>
+		<description>研究遗迹知识，提升英雄的基础属性。</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>4</researchViewY>
+		<prerequisites>
+			<li>DotaTech1</li>
+			<li>Machining</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_Equipment</defName>
+		<label>基础装备</label>
+		<description>研究遗迹知识，解锁 Dota 基础装备。</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>2</researchViewY>
+		<prerequisites>
+			<li>DotaTech1</li>
+			<li>Machining</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_Components</defName>
+		<label>基础配件</label>
+		<description>研究遗迹知识，解锁 Dota 基础配件。</description>
+		<baseCost>1000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>0</researchViewY>
+		<prerequisites>
+			<li>DotaTech1</li>
+			<li>Machining</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_MysticComms</defName>
+		<label>神秘通讯频道</label>
+		<description>建立与遗迹力量的通讯连接。</description>
+		<baseCost>500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>6</researchViewY>
+		<prerequisites>
+			<li>DotaTech1</li>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_RelicArms</defName>
+		<label>遗迹武装</label>
+		<description>解锁遗迹武装的制造。</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>4</researchViewX>
+		<researchViewY>3</researchViewY>
+		<prerequisites>
+			<li>DotaTech_Attributes</li>
+			<li>DotaTech_Equipment</li>
+			<li>DotaTech_Components</li>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_RelicArmaments</defName>
+		<label>遗迹军备</label>
+		<description>解锁遗迹军备的制造。</description>
+		<baseCost>2000</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>4</researchViewX>
+		<researchViewY>1</researchViewY>
+		<prerequisites>
+			<li>DotaTech_Attributes</li>
+			<li>DotaTech_Equipment</li>
+			<li>DotaTech_Components</li>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_AdvancedRelicArms</defName>
+		<label>高级遗迹武装</label>
+		<description>解锁高级遗迹武装。</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>6</researchViewX>
+		<researchViewY>3</researchViewY>
+		<prerequisites>
+			<li>DotaTech_RelicArms</li>
+			<li>Fabrication</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_AdvancedRelicArmaments</defName>
+		<label>高级遗迹军备</label>
+		<description>解锁高级遗迹军备。</description>
+		<baseCost>4000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>6</researchViewX>
+		<researchViewY>1</researchViewY>
+		<prerequisites>
+			<li>DotaTech_RelicArmaments</li>
+			<li>Fabrication</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
+		<defName>DotaTech_DivineRapier</defName>
+		<label>圣剑</label>
+		<description>解锁圣剑。</description>
+		<baseCost>6000</baseCost>
+		<techLevel>Spacer</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>8</researchViewX>
+		<researchViewY>2</researchViewY>
+		<prerequisites>
+			<li>DotaTech_AdvancedRelicArms</li>
+			<li>DotaTech_AdvancedRelicArmaments</li>
+			<li>AdvancedFabrication</li>
+		</prerequisites>
+	</ResearchProjectDef>
+</Defs>

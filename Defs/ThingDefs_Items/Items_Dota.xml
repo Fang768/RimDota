@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 遗迹碎片：在科研台分析后可解锁 Dota 科技线第一项。 -->
+	<ThingDef ParentName="ResourceBase">
+		<defName>DotaRelicFragment</defName>
+		<label>遗迹碎片</label>
+		<description>从月亮碎片中获得的古代遗物。在科研台分析它可以解锁 Dota 科技线的第一项研究。</description>
+		<graphicData>
+			<texPath>Things/Item/Resource/DotaRelicFragment</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Flammability>0</Flammability>
+			<Mass>0.05</Mass>
+			<MarketValue>200</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_CompAnalyzableUnlockResearch">
+				<analysisID>700001</analysisID>
+				<requiresMechanitor>false</requiresMechanitor>
+				<analysisDurationHours>1</analysisDurationHours>
+				<destroyedOnAnalyzed>true</destroyedOnAnalyzed>
+				<completedLetterLabel>遗迹碎片研究完成：{RESEARCH} 已解锁</completedLetterLabel>
+				<completedLetter>{PAWN_labelShort} 通过研究遗迹碎片，获得了 {RESEARCH} 所需的古代知识。现在可以在科研台上开始研究这项科技了。</completedLetter>
+				<completedLetterDef>PositiveEvent</completedLetterDef>
+				<activateTexPath>UI/Icons/Study</activateTexPath>
+				<activateLabelString>分析…</activateLabelString>
+				<activateDescString>分析这块遗迹碎片。</activateDescString>
+				<jobString>分析遗迹碎片</jobString>
+				<guiLabelString>选择由谁来分析</guiLabelString>
+				<inspectString>可以由殖民者分析。</inspectString>
+				<targetingParameters>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetAnimals>false</canTargetAnimals>
+					<canTargetMechs>false</canTargetMechs>
+					<onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+				</targetingParameters>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>
