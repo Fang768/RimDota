@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- Dota 2 基础装备组件。只填充当前框架已支持的属性：
+	     力量/敏捷/智力、护甲、生命回复、生命上限、法力上限、法力回复、攻速、魔抗、攻击/技能吸血。
+	     攻击力、移动速度、攻击特效、主动技能暂留空（待实现）。 -->
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_BandOfElvenskin</defName>
+		<label>精灵布带</label>
+		<description>Dota 2 的基础装备，提供 +6 敏捷。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaBandOfElvenskin</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaAgilityBonus>6</DotaAgilityBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_BladeOfAlacrity</defName>
+		<label>欢欣之刃</label>
+		<description>Dota 2 的基础装备，提供 +10 敏捷。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaBladeOfAlacrity</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.3</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaAgilityBonus>10</DotaAgilityBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Hands</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_BootsOfSpeed</defName>
+		<label>速度之靴</label>
+		<description>Dota 2 的基础装备。原效果：+45 移动速度（待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaBootsOfSpeed</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.2</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Feet</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_Broadsword</defName>
+		<label>阔剑</label>
+		<description>Dota 2 的基础装备。原效果：+15 攻击力（待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaBroadsword</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.4</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Hands</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_Chainmail</defName>
+		<label>锁子甲</label>
+		<description>Dota 2 的基础装备，提供 +4 护甲。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaChainmail</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1.0</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaArmorBonus>4</DotaArmorBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Torso</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_Circlet</defName>
+		<label>圆环</label>
+		<description>Dota 2 的基础装备，提供 +2 力量、敏捷和智力。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaCirclet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaStrengthBonus>2</DotaStrengthBonus>
+			<DotaAgilityBonus>2</DotaAgilityBonus>
+			<DotaIntelligenceBonus>2</DotaIntelligenceBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_Diadem</defName>
+		<label>宝冕</label>
+		<description>Dota 2 的基础装备，提供 +6 力量、敏捷和智力。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaDiadem</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.2</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaStrengthBonus>6</DotaStrengthBonus>
+			<DotaAgilityBonus>6</DotaAgilityBonus>
+			<DotaIntelligenceBonus>6</DotaIntelligenceBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_MithrilHammer</defName>
+		<label>秘银锤</label>
+		<description>Dota 2 的基础装备。原效果：+24 攻击力（待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaMithrilHammer</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.5</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Hands</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_MorbidMask</defName>
+		<label>吸血面具</label>
+		<description>Dota 2 的基础装备，提供 +18% 攻击吸血。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaMorbidMask</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.2</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaAttackLifesteal>0.18</DotaAttackLifesteal>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_MysticStaff</defName>
+		<label>神秘法杖</label>
+		<description>Dota 2 的基础装备，提供 +25 智力。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaMysticStaff</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.5</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaIntelligenceBonus>25</DotaIntelligenceBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Hands</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_OgreAxe</defName>
+		<label>食人魔之斧</label>
+		<description>Dota 2 的基础装备，提供 +10 力量。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaOgreAxe</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.5</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaStrengthBonus>10</DotaStrengthBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Hands</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_OrbOfBlight</defName>
+		<label>枯萎之珠</label>
+		<description>Dota 2 的基础装备。原效果：攻击使敌人护甲降低 2 点，持续 3 秒（待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaOrbOfBlight</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_OrbOfFrost</defName>
+		<label>冰霜之珠</label>
+		<description>Dota 2 的基础装备。原效果：攻击减速敌人并降低其治疗效果（待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaOrbOfFrost</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_OrbOfVenom</defName>
+		<label>淬毒之珠</label>
+		<description>Dota 2 的基础装备。原效果：攻击使敌人中毒（待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaOrbOfVenom</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_Platemail</defName>
+		<label>板甲</label>
+		<description>Dota 2 的基础装备，提供 +10 护甲。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaPlatemail</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>1.5</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaArmorBonus>10</DotaArmorBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Torso</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_PointBooster</defName>
+		<label>精气之球</label>
+		<description>Dota 2 的基础装备，提供 +175 法力上限和 +175 生命上限。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaPointBooster</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.3</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaMaxManaBonus>175</DotaMaxManaBonus>
+			<DotaMaxHealthBonus>175</DotaMaxHealthBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_Quarterstaff</defName>
+		<label>短棍</label>
+		<description>Dota 2 的基础装备，提供 +10 攻击速度（+10 攻击力待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaQuarterstaff</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.3</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaAttackSpeedBonus>10</DotaAttackSpeedBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Hands</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_RingOfHealth</defName>
+		<label>治疗指环</label>
+		<description>Dota 2 的基础装备，提供 +4.5 生命回复/天。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaRingOfHealth</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaHealthRegenBonus>4.5</DotaHealthRegenBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Neck</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_RingOfProtection</defName>
+		<label>守护指环</label>
+		<description>Dota 2 的基础装备，提供 +2 护甲。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaRingOfProtection</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaArmorBonus>2</DotaArmorBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Neck</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_RingOfRegen</defName>
+		<label>回复戒指</label>
+		<description>Dota 2 的基础装备，提供 +1.25 生命回复/天。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaRingOfRegen</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaHealthRegenBonus>1.25</DotaHealthRegenBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Neck</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_RingOfTarrasque</defName>
+		<label>恐鳌之戒</label>
+		<description>Dota 2 的基础装备，提供 +12 生命回复/天。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaRingOfTarrasque</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.4</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaHealthRegenBonus>12</DotaHealthRegenBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Neck</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_RobeOfTheMagi</defName>
+		<label>法师长袍</label>
+		<description>Dota 2 的基础装备，提供 +6 智力。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaRobeOfTheMagi</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.5</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaIntelligenceBonus>6</DotaIntelligenceBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Torso</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_SagesMask</defName>
+		<label>贤者面罩</label>
+		<description>Dota 2 的基础装备，提供 +0.7 法力回复/天。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaSagesMask</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaManaRegenBonus>0.7</DotaManaRegenBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_ShadowAmulet</defName>
+		<label>暗影护符</label>
+		<description>Dota 2 的主动装备。原效果：使用后进入隐身（主动技能待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaShadowAmulet</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Neck</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_Shawl</defName>
+		<label>披巾</label>
+		<description>Dota 2 的基础装备，提供 +10% 魔法抗性。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaShawl</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.3</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaMagicResistance>0.1</DotaMagicResistance>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Shoulders</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_SuperBlink</defName>
+		<label>超级闪烁</label>
+		<description>Dota 2 的主动装备。原效果：向指定方向闪烁（主动技能待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaSuperBlink</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.2</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_TownPortalScroll</defName>
+		<label>回城卷轴</label>
+		<description>Dota 2 的主动装备。原效果：传送至友方建筑（主动技能待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaTownPortalScroll</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_UltimateOrb</defName>
+		<label>极限法球</label>
+		<description>Dota 2 的基础装备，提供 +15 力量、敏捷和智力。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaUltimateOrb</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.5</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaStrengthBonus>15</DotaStrengthBonus>
+			<DotaAgilityBonus>15</DotaAgilityBonus>
+			<DotaIntelligenceBonus>15</DotaIntelligenceBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_VitalityBooster</defName>
+		<label>活力之球</label>
+		<description>Dota 2 的基础装备，提供 +250 生命上限。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaVitalityBooster</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.3</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaMaxHealthBonus>250</DotaMaxHealthBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_VoidStone</defName>
+		<label>虚无宝石</label>
+		<description>Dota 2 的基础装备，提供 +1.75 法力回复/天。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaVoidStone</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.2</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaManaRegenBonus>1.75</DotaManaRegenBonus>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_VoodooMask</defName>
+		<label>巫毒面具</label>
+		<description>Dota 2 的基础装备，提供 +15% 技能吸血。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaVoodooMask</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.2</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaSpellLifesteal>0.15</DotaSpellLifesteal>
+		</equippedStatOffsets>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>UpperHead</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>Dota_WindLace</defName>
+		<label>风灵之纹</label>
+		<description>Dota 2 的基础装备。原效果：+15 移动速度（待实现）。</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/DotaWindLace</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+			<Mass>0.1</Mass>
+		</statBases>
+		<smeltable>false</smeltable>
+		<apparel>
+			<layers>
+				<li>DotaGear</li>
+			</layers>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+		</apparel>
+	</ThingDef>
+</Defs>
