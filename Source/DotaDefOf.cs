@@ -12,8 +12,6 @@ public static class DotaDefOf
 {
 	public static HediffDef DotaHero;
 
-	public static ApparelLayerDef DotaGear;
-
 	public static StatDef DotaStrengthBonus;
 
 	public static StatDef DotaAgilityBonus;

@@ -61,33 +61,6 @@ public class HediffComp_DotaInventory : HediffComp, IThingHolder
 		base.CompExposeData();
 		EnsureInventory();
 		inventory.ExposeData();
-		if (Scribe.mode == LoadSaveMode.PostLoadInit)
-		{
-			MigrateWornDotaGear();
-		}
-	}
-
-	/// <summary>
-	/// 旧存档迁移：把之前走 WornApparel 的 Dota 装备移入六格背包，
-	/// 避免升级后装备仍在身上但不参与属性汇总。
-	/// </summary>
-	private void MigrateWornDotaGear()
-	{
-		if (Pawn?.apparel == null || inventory == null)
-		{
-			return;
-		}
-
-		List<Apparel> worn = Pawn.apparel.WornApparel;
-		for (int i = worn.Count - 1; i >= 0 && inventory.Count < SlotCount; i--)
-		{
-			Apparel apparel = worn[i];
-			if (DotaEquipmentUtil.IsDotaEquipment(apparel.def))
-			{
-				Pawn.apparel.Remove(apparel);
-				inventory.TryAddOrTransfer(apparel);
-			}
-		}
 	}
 
 	public bool TryEquip(Thing item)

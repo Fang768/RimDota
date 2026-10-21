@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingCategoryDef>
+		<defName>DotaEquipment</defName>
+		<label>Dota equipment</label>
+		<parent>Items</parent>
+	</ThingCategoryDef>
+
+	<!-- Dota 装备是普通物品，只作为六格装备栏里的属性载体，不参与衣物/身体部位系统。 -->
+	<ThingDef Name="DotaItemBase" Abstract="True">
+		<thingClass>ThingWithComps</thingClass>
+		<category>Item</category>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<useHitPoints>false</useHitPoints>
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>true</alwaysHaulable>
+		<tickerType>Never</tickerType>
+		<smeltable>false</smeltable>
+		<rotatable>false</rotatable>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<stackLimit>1</stackLimit>
+		<thingCategories>
+			<li>DotaEquipment</li>
+		</thingCategories>
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+		</graphicData>
+		<statBases>
+			<Mass>0.2</Mass>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Forbiddable" />
+		</comps>
+		<modExtensions>
+			<li Class="RimDota.DotaEquipmentExtension" />
+		</modExtensions>
+	</ThingDef>
+</Defs>

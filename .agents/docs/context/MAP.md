@@ -8,7 +8,7 @@
 | --- | --- | --- |
 | `Source/` | C# 源码与 csproj | 游戏不加载，仅供开发 |
 | `About/` | Mod 元数据 | `About.xml`、`Preview.png` |
-| `Defs/` | XML 定义 | `HediffDefs`、`ApparelLayerDefs`、`ResearchProjectDefs`、`ThingDefs_Buildings/Items/Apparel`、`MapGeneration` |
+| `Defs/` | XML 定义 | `HediffDefs`、`ResearchProjectDefs`、`StatDefs`、`ThingDefs_Buildings/Items`、`MapGeneration` |
 | `Patches/` | XML xpath 补丁 | 目前为空（仅 README） |
 | `Languages/` | 本地化 | `English/Keyed`、`English/DefInjected` |
 | `Textures/`、`Sounds/` | 贴图、音效 | `Textures/UI/Icons/Dota/` 三维占位图标；`Sounds/` 为空（仅 README） |

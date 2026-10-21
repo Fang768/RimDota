@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
-	<!-- Dota 英雄专属装备层：只有带 DotaHero 状态的小人可穿戴该层的装备。 -->
-	<ApparelLayerDef>
-		<defName>DotaGear</defName>
-		<label>Dota 装备</label>
-		<drawOrder>500</drawOrder>
-	</ApparelLayerDef>
-</Defs>
