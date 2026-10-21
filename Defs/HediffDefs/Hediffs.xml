@@ -10,4 +10,15 @@
 			<li Class="RimDota.HediffCompProperties_DotaExample" />
 		</comps>
 	</HediffDef>
+
+	<!-- 框架：隐藏的英雄标记 Hediff。本身无可见效果，用于挂载英雄系统（法力、等级等）。 -->
+	<HediffDef>
+		<defName>DotaHero</defName>
+		<label>Dota hero</label>
+		<description>Marks this pawn as a Dota hero and enables hero-only systems such as mana.</description>
+		<hediffClass>RimDota.Hediff_DotaHero</hediffClass>
+		<comps>
+			<li Class="RimDota.HediffCompProperties_DotaHero" />
+		</comps>
+	</HediffDef>
 </Defs>

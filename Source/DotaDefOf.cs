@@ -10,5 +10,43 @@ namespace RimDota;
 [DefOf]
 public static class DotaDefOf
 {
+	public static HediffDef DotaHero;
+
+	public static ApparelLayerDef DotaGear;
+
+	public static StatDef DotaStrengthBonus;
+
+	public static StatDef DotaAgilityBonus;
+
+	public static StatDef DotaIntelligenceBonus;
+
+	public static StatDef DotaArmorBonus;
+
+	public static StatDef DotaHealthRegenBonus;
+
+	public static StatDef DotaMaxManaBonus;
+
+	public static StatDef DotaMaxHealthBonus;
+
+	public static StatDef DotaManaRegenBonus;
+
+	public static StatDef DotaAttackSpeedBonus;
+
+	public static StatDef DotaMagicResistance;
+
+	public static StatDef DotaUniversalDamageReduction;
+
+	public static StatDef DotaAttackLifesteal;
+
+	public static StatDef DotaSpellLifesteal;
+
+	public static ThingDef Dota_BladesOfAttack;
+
+	public static ThingDef DotaMoonShard;
+
+	public static ThingDef DotaRelicFragment;
+
+	public static ResearchProjectDef DotaTech1;
+
 	public static HediffDef Dota_ExampleBuff;
 }

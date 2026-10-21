@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- 装备属性加成：Dota 装备通过 equippedStatOffsets 写入这些 StatDef，
+	     英雄组件（HediffComp_DotaHero）读取后叠加到三维属性上。 -->
+	<StatDef>
+		<defName>DotaStrengthBonus</defName>
+		<label>Dota strength bonus</label>
+		<description>Bonus to Dota strength granted by equipped Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>Integer</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaAgilityBonus</defName>
+		<label>Dota agility bonus</label>
+		<description>Bonus to Dota agility granted by equipped Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>Integer</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaIntelligenceBonus</defName>
+		<label>Dota intelligence bonus</label>
+		<description>Bonus to Dota intelligence granted by equipped Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>Integer</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaArmorBonus</defName>
+		<label>Dota armor bonus</label>
+		<description>Raw Dota armor points granted by equipped Dota gear (Dota 2 armor formula).</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>Integer</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaHealthRegenBonus</defName>
+		<label>Dota health regeneration bonus</label>
+		<description>Bonus health regeneration (per day) granted by equipped Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>FloatTwo</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaMaxManaBonus</defName>
+		<label>Dota max mana bonus</label>
+		<description>Bonus max mana granted by equipped Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>Integer</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaMaxHealthBonus</defName>
+		<label>Dota max health bonus</label>
+		<description>Flat max health bonus granted by equipped Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>Integer</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaManaRegenBonus</defName>
+		<label>Dota mana regeneration bonus</label>
+		<description>Bonus mana regeneration (per day) granted by equipped Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>FloatTwo</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaAttackSpeedBonus</defName>
+		<label>Dota attack speed bonus</label>
+		<description>Attack speed points granted by equipped Dota gear (0.5% cooldown reduction per point).</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>Integer</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaMagicResistance</defName>
+		<label>Dota magic resistance bonus</label>
+		<description>Bonus magic resistance (fraction) granted by equipped Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>-1</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>PercentZero</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaUniversalDamageReduction</defName>
+		<label>Dota universal damage reduction</label>
+		<description>Universal damage reduction (Dota2-style), additive and can be negative.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>-10</minValue>
+		<maxValue>1</maxValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>PercentZero</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaAttackLifesteal</defName>
+		<label>Dota attack lifesteal</label>
+		<description>Attack lifesteal (fraction) granted by Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<maxValue>1</maxValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>PercentZero</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaSpellLifesteal</defName>
+		<label>Dota spell lifesteal</label>
+		<description>Spell lifesteal (fraction) granted by Dota gear.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<maxValue>1</maxValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>PercentZero</toStringStyle>
+	</StatDef>
+</Defs>

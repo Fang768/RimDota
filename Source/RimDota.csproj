@@ -10,14 +10,15 @@
 		<!-- C# 默认命名空间 -->
 		<RootNamespace>RimDota</RootNamespace>
 
-		<!-- RimWorld 只支持 .NET Framework 4.7.2 / 4.8 / 4.8.1，这里用 4.7.2 -->
-		<TargetFramework>net48</TargetFramework>
+		<!-- RimWorld 1.7 起迁移到 .NET 10（Waylith 引擎），目标框架用 net10.0 -->
+		<TargetFramework>net10.0</TargetFramework>
 
 		<!-- preview = 最新 C# 语言特性 -->
 		<LangVersion>preview</LangVersion>
 
 		<!-- 输出目录：编译后 DLL 会直接放到 Assemblies/ 下供游戏加载 -->
 		<OutDir>..\Assemblies\</OutDir>
+
 
 		<PlatformTarget>AnyCPU</PlatformTarget>
 		<DebugSymbols>true</DebugSymbols>
@@ -32,7 +33,7 @@
 		<NoWarn>$(NoWarn);7035</NoWarn>
 	</PropertyGroup>
 
-	<!-- Debug 配置（默认）：热重载调试用。关闭优化，避免方法被内联导致 0Reloader 无法替换 -->
+	<!-- Debug 配置（默认）：关闭优化，便于调试 -->
 	<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
 		<Optimize>false</Optimize>
 	</PropertyGroup>
@@ -44,18 +45,11 @@
 
 	<!-- 依赖项 -->
 	<ItemGroup>
-		<!-- RimWorld 引用程序集（1.6.4871 与当前游戏版本精确匹配） -->
-		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4871" />
+		<!-- RimWorld 引用程序集（1.7.4979-alpha 对应 1.7 测试版；本机游戏为 1.7.4981 rev136） -->
+		<PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.4979-alpha" />
 
-		<!-- Harmony 补丁库 -->
-		<PackageReference Include="Lib.Harmony" Version="2.*" ExcludeAssets="runtime" />
-
-		<!-- 0Reloader：仅编译期引用，用于 [ReloadMethod] 特性标注要热重载的方法。
-		     Private=false 表示不复制到输出目录（Assemblies 里已存在，避免复制到自身）。
-		     发布前请删除本引用、Assemblies/0Reloader.dll、代码里的 [ReloadMethod] 与 using Reloader; -->
-		<Reference Include="0Reloader">
-			<HintPath>..\Assemblies\0Reloader.dll</HintPath>
-			<Private>false</Private>
-		</Reference>
+		<!-- Harmony：引用 Ref 引用程序集；运行时由 HarmonyRimWorld（brrainz.harmony）统一提供，
+		     避免每个 Mod 各带一份 0Harmony.dll 造成版本冲突 -->
+		<PackageReference Include="Lib.Harmony.Ref" Version="2.4.3" />
 	</ItemGroup>
 </Project>

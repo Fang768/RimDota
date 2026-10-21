@@ -6,9 +6,18 @@
 
 	<packageId>magicconch.rimdota</packageId> <!-- 唯一标识：英文小写 + 至少一个点，会写进玩家存档的 Mod 列表，发布后不宜再改 -->
 
-	<description>一个已配置好 C# 开发环境（.NET Framework 4.7.2 + Harmony）的 RimWorld 功能 Mod 模板。发布前请替换为你的 Mod 描述。</description>
+	<description>一个已配置好 C# 开发环境（.NET 10 + Harmony）的 RimWorld 功能 Mod 模板。发布前请替换为你的 Mod 描述。</description>
 
 	<supportedVersions>
 		<li>1.6</li>
+		<li>1.7</li>
 	</supportedVersions>
+
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+		</li>
+	</modDependencies>
 </ModMetaData>

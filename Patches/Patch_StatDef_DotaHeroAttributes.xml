@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- 瞄准/攻速：敏捷每点 -0.5% + 装备攻速，统一由 AimAndCooldownFactor 提供。 -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/StatDef[defName="AimingDelayFactor"]/parts</xpath>
+		<value>
+			<li Class="RimDota.StatPart_DotaHeroAttackSpeed" />
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/StatDef[defName="RangedCooldownFactor"]</xpath>
+		<value>
+			<parts>
+				<li Class="RimDota.StatPart_DotaHeroAttackSpeed" />
+			</parts>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/StatDef[defName="MeleeCooldownFactor"]</xpath>
+		<value>
+			<parts>
+				<li Class="RimDota.StatPart_DotaHeroAttackSpeed" />
+			</parts>
+		</value>
+	</Operation>
+
+	<!-- 智力 → 心灵敏感度：每点 +2%，以 factor 形式乘在最后。 -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/StatDef[defName="PsychicSensitivity"]/parts</xpath>
+		<value>
+			<li Class="RimDota.StatPart_DotaHeroAttribute">
+				<attribute>Intelligence</attribute>
+				<factorPerPoint>0.02</factorPerPoint>
+			</li>
+		</value>
+	</Operation>
+</Patch>

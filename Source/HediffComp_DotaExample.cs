@@ -1,4 +1,3 @@
-using Reloader;
 using Verse;
 
 namespace RimDota;
@@ -14,7 +13,6 @@ public class HediffComp_DotaExample : HediffComp
 
 	private int ticksSinceApplied;
 
-	[ReloadMethod] // 标记此方法可被 0Reloader 热重载：改这里重新编译即可，无需重启游戏
 	public override void CompPostTick(ref float severityAdjustment)
 	{
 		base.CompPostTick(ref severityAdjustment);
