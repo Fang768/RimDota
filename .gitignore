@@ -485,3 +485,5 @@ $RECYCLE.BIN/
 # RimDota：编译产物与热重载工具（由 dotnet build 生成，不入库）
 Assemblies/*.dll
 Assemblies/*.pdb
+Assemblies/*.deps.json
+Assemblies/*.runtimeconfig.json
