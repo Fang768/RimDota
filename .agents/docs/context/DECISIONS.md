@@ -15,7 +15,8 @@
 | 编译输出到 `Assemblies/`（`OutDir=..\Assemblies\`） | 游戏直接从 Assemblies 加载 | `Source/RimDota.csproj` |
 | 三维属性系统：力量/敏捷/智力，初始 20/20/20，成长值单独存档（默认 0） | 后续按等级提升，成长逻辑未做 | `Source/Hediff_DotaHero.cs` |
 | 派生数值双层结构：属性基础 + 装备 Bonus* 加成，Bonus* 默认 0 且入存档 | 装备加数值统一写 Bonus*，避免重复权威来源 | `Source/Hediff_DotaHero.cs` |
-| 属性换算系数：力量→生命上限 +2%/点、回血 +1/点/天；敏捷→护甲 +1%/点、瞄准/攻速 -0.5%/点；智力→法力上限 +5/点、回蓝 +5/点/天、心灵敏感度 +2%/点 | 用户确认（敏捷远程冷却 -0.5%/点、护甲按此系数） | `Source/Hediff_DotaHero.cs` |
+| 属性换算系数：力量→生命上限 +2%/点、回血 +0.1/点/秒；敏捷→护甲 +1%/点、瞄准/攻速 -0.5%/点；智力→法力上限 +5/点、回蓝 +0.05/点/秒、心灵敏感度 +2%/点 | 用户确认；回复速度采用 Dota 2 每秒单位，生命回复每 15 tick 按 `回复/秒 × 15 / 60` 累积 | `Source/Hediff_DotaHero.cs` |
+| 回复平衡系数 `RegenBalanceScale`：默认 1.0，范围 0–5，统一乘到属性与装备提供的生命/法力回复 | `1.0` 完全采用 Dota 2 原始速度；系数在 Mod 设置中调整并持久化，方便平衡 RimWorld 的长周期数值 | `Source/DotaModSettings.cs` + `Source/RimDotaMod.cs` |
 | 蓝条布局：法力标签在左、三维“图标+值+成长”在上、成长用 Tiny 灰字；占位图标 | 用户要求；真图标需 VTex 解码 | `Source/Gizmo_DotaMana.cs` + `Textures/UI/Icons/Dota/` |
 | 调试入口：Dev 右键 Pawns 设为/移除/查看英雄 | 便于游戏内验证 | `Source/DotaHeroDebugActions.cs` |
 | 护甲/攻速/心灵敏感度当前用 XML 静态 statOffsets，暂不动态驱动 | 动态 StatPart 待用户确认后再接线 | `Defs/HediffDefs/Hediffs.xml` + `Source/StatPart_DotaHeroAttribute.cs` |

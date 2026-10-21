@@ -45,7 +45,7 @@
 	<StatDef>
 		<defName>DotaHealthRegenBonus</defName>
 		<label>Dota health regeneration bonus</label>
-		<description>Bonus health regeneration (per day) granted by equipped Dota gear.</description>
+		<description>Bonus health regeneration (per second) granted by equipped Dota gear.</description>
 		<category>PawnMisc</category>
 		<defaultBaseValue>0</defaultBaseValue>
 		<minValue>0</minValue>
@@ -75,7 +75,7 @@
 	<StatDef>
 		<defName>DotaManaRegenBonus</defName>
 		<label>Dota mana regeneration bonus</label>
-		<description>Bonus mana regeneration (per day) granted by equipped Dota gear.</description>
+		<description>Bonus mana regeneration (per second) granted by equipped Dota gear.</description>
 		<category>PawnMisc</category>
 		<defaultBaseValue>0</defaultBaseValue>
 		<minValue>0</minValue>

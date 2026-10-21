@@ -149,14 +149,14 @@ public class Gizmo_DotaAttributes : Gizmo
 
 		string tip = "力量 " + comp.Strength.ToString("0") + "\n"
 			+ "  生命上限 +" + ((comp.HealthScaleMult - 1f) * 100f).ToString("0") + "%（总 " + totalMaxHp.ToString("0") + "）\n"
-			+ "  回血 " + comp.HealthRegenPerDay.ToString("0.#") + " 点/天\n"
+			+ "  回血 " + comp.HealthRegenPerSecond.ToString("0.##") + " 点/秒\n"
 			+ "敏捷 " + comp.Agility.ToString("0") + "\n"
 			+ "  护甲 " + comp.ArmorPoints.ToString("0.##") + "（物理减伤 " + ((1f - comp.PhysicalDamageMultiplier) * 100f).ToString("0.#") + "%）\n"
 			+ "  瞄准/攻速 " + (comp.AimAndCooldownFactor * 100f).ToString("0") + "%\n"
 			+ "智力 " + comp.Intelligence.ToString("0") + "\n"
 			+ "  魔抗 " + (comp.MagicResistance * 100f).ToString("0.#") + "%\n"
 			+ "  法力上限 " + comp.MaxMana.ToString("0") + "\n"
-			+ "  回蓝 " + comp.ManaRegenPerDay.ToString("0.#") + " 点/天\n"
+			+ "  回蓝 " + comp.ManaRegenPerSecond.ToString("0.##") + " 点/秒\n"
 			+ "  心灵敏感度 +" + (comp.PsychicBonus * 100f).ToString("0") + "%";
 		TooltipHandler.TipRegion(rect, tip);
 	}

@@ -283,7 +283,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_RingOfHealth</defName>
 		<label>治疗指环</label>
-		<description>Dota 2 的基础装备，提供 +4.5 生命回复/天。</description>
+		<description>Dota 2 的基础装备，提供 +4.5 生命回复/秒。</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaRingOfHealth</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -317,7 +317,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_RingOfRegen</defName>
 		<label>回复戒指</label>
-		<description>Dota 2 的基础装备，提供 +1.25 生命回复/天。</description>
+		<description>Dota 2 的基础装备，提供 +1.25 生命回复/秒。</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaRingOfRegen</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -334,7 +334,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_RingOfTarrasque</defName>
 		<label>恐鳌之戒</label>
-		<description>Dota 2 的基础装备，提供 +12 生命回复/天。</description>
+		<description>Dota 2 的基础装备，提供 +12 生命回复/秒。</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaRingOfTarrasque</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -368,7 +368,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_SagesMask</defName>
 		<label>贤者面罩</label>
-		<description>Dota 2 的基础装备，提供 +0.7 法力回复/天。</description>
+		<description>Dota 2 的基础装备，提供 +0.7 法力回复/秒。</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaSagesMask</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -480,7 +480,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_VoidStone</defName>
 		<label>虚无宝石</label>
-		<description>Dota 2 的基础装备，提供 +1.75 法力回复/天。</description>
+		<description>Dota 2 的基础装备，提供 +1.75 法力回复/秒。</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaVoidStone</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

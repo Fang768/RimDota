@@ -62,6 +62,6 @@ public static class DotaHeroDebugActions
 		{
 			totalMaxHp += part.def.GetMaxHealth(p);
 		}
-		Log.Message($"RimDota: {p.LabelShort} 力量={comp.Strength:F0} 敏捷={comp.Agility:F0} 智力={comp.Intelligence:F0} 生命倍率={comp.HealthScaleMult:F2} 总最大生命={totalMaxHp:F0} 护甲={comp.ArmorPoints:F2} 物理减伤={(1f - comp.PhysicalDamageMultiplier) * 100f:F1}% 魔抗={comp.MagicResistance * 100f:F1}% 法力上限={comp.MaxMana:F0} 攻击吸血={comp.AttackLifesteal * 100f:F0}% 技能吸血={comp.SpellLifesteal * 100f:F0}%");
+		Log.Message($"RimDota: {p.LabelShort} 力量={comp.Strength:F0} 敏捷={comp.Agility:F0} 智力={comp.Intelligence:F0} 生命倍率={comp.HealthScaleMult:F2} 总最大生命={totalMaxHp:F0} 回血={comp.HealthRegenPerSecond:F2}/秒 回蓝={comp.ManaRegenPerSecond:F2}/秒 回复系数={RimDotaMod.Settings.RegenBalanceScale:F2} 护甲={comp.ArmorPoints:F2} 物理减伤={(1f - comp.PhysicalDamageMultiplier) * 100f:F1}% 魔抗={comp.MagicResistance * 100f:F1}% 法力上限={comp.MaxMana:F0} 攻击吸血={comp.AttackLifesteal * 100f:F0}% 技能吸血={comp.SpellLifesteal * 100f:F0}%");
 	}
 }
