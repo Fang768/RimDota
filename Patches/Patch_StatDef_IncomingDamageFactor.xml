@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 	<!-- Dota2 用的全伤害减免：加算、可为负，接在 IncomingDamageFactor 上。 -->
-	<Operation Class="PatchOperationConditional">
+	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/StatDef[defName="IncomingDamageFactor"]</xpath>
-		<match Class="PatchOperationAdd">
-			<xpath>/Defs/StatDef[defName="IncomingDamageFactor"]/parts</xpath>
-			<value>
+		<value>
+			<parts>
 				<li Class="RimDota.StatPart_DotaUniversalDamageReduction" />
-			</value>
-		</match>
-		<nomatch Class="PatchOperationAdd">
-			<xpath>/Defs/StatDef[defName="IncomingDamageFactor"]</xpath>
-			<value>
-				<parts>
-					<li Class="RimDota.StatPart_DotaUniversalDamageReduction" />
-				</parts>
-			</value>
-		</nomatch>
+			</parts>
+		</value>
 	</Operation>
 </Patch>
