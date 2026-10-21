@@ -38,6 +38,8 @@ public static class DotaDefOf
 
 	public static StatDef DotaSpellLifesteal;
 
+	public static JobDef Dota_EquipItem;
+
 	public static ThingDef Dota_BladesOfAttack;
 
 	public static ThingDef DotaMoonShard;

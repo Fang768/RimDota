@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<JobDef>
+		<defName>Dota_EquipItem</defName>
+		<driverClass>RimDota.JobDriver_DotaEquip</driverClass>
+		<reportString>装备 TargetA。</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+</Defs>

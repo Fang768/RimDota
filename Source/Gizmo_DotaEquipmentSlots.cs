@@ -12,8 +12,10 @@ public class Gizmo_DotaEquipmentSlots : Gizmo
 {
 	private const float SlotSize = 30f;
 	private const float Gap = 5f;
-	private const float Width = 230f;
-	private const float GizmoHeight = 42f;
+	private const float Width = 120f;
+	private const float GizmoHeight = 77f;
+	private const int Columns = 3;
+	private const int Rows = 2;
 
 	private readonly HediffComp_DotaInventory comp;
 
@@ -32,12 +34,20 @@ public class Gizmo_DotaEquipmentSlots : Gizmo
 	{
 		float width = GetWidth(maxWidth);
 		Rect rect = new Rect(topLeft.x, topLeft.y, width, GizmoHeight);
-		Rect inner = new Rect(rect.x + 6f, rect.y + 6f, rect.width - 12f, SlotSize);
+		float gridWidth = SlotSize * Columns + Gap * (Columns - 1);
+		float gridHeight = SlotSize * Rows + Gap * (Rows - 1);
+		Rect inner = new Rect(rect.center.x - gridWidth / 2f, rect.y + 6f, gridWidth, gridHeight);
 		Widgets.DrawWindowBackground(rect);
 
 		for (int i = 0; i < HediffComp_DotaInventory.SlotCount; i++)
 		{
-			Rect slot = new Rect(inner.x + i * (SlotSize + Gap), inner.y, SlotSize, SlotSize);
+			int col = i % Columns;
+			int row = i / Columns;
+			Rect slot = new Rect(
+				inner.x + col * (SlotSize + Gap),
+				inner.y + row * (SlotSize + Gap),
+				SlotSize,
+				SlotSize);
 			Widgets.DrawBoxSolid(slot, new Color(0.08f, 0.08f, 0.12f));
 			Widgets.DrawBox(slot);
 

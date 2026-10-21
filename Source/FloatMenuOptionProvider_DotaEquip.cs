@@ -1,5 +1,6 @@
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace RimDota;
 
@@ -50,6 +51,16 @@ public class FloatMenuOptionProvider_DotaEquip : FloatMenuOptionProvider
 			return new FloatMenuOption("Dota 装备栏已满", null, MenuOptionPriority.DisabledOption);
 		}
 
-		return new FloatMenuOption("装备到 Dota 装备栏", () => inventory.TryEquip(clickedThing));
+		if (!pawn.CanReach(clickedThing, PathEndMode.ClosestTouch, Danger.Deadly))
+		{
+			return new FloatMenuOption("无法到达 Dota 装备", null, MenuOptionPriority.DisabledOption);
+		}
+
+		return new FloatMenuOption("装备到 Dota 装备栏", () =>
+		{
+			clickedThing.SetForbidden(false);
+			Job job = JobMaker.MakeJob(DotaDefOf.Dota_EquipItem, clickedThing);
+			pawn.jobs.TryTakeOrderedJob(job, JobTag.Misc);
+		});
 	}
 }

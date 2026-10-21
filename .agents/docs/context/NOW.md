@@ -1,6 +1,6 @@
 # 当前状态（NOW）
 
-> 最后更新：2026-10-21（六格装备栏 + Dota 装备普通物品重构）。
+> 最后更新：2026-10-21（六格装备栏 3×2 布局 + 寻路装备）。
 
 ## 目标
 - 本次任务：把 RimDota 建成框架 Mod，已落地 DotaHero 隐藏标记、三维属性（力量/敏捷/智力）、法力值蓝条、装备加成“双层”数据模型，以及基础科技树/建筑/物品。
@@ -26,10 +26,10 @@
 - 工具链：rimworld_modder 分析工具已挂载；构建 `dotnet build Source/RimDota.csproj` → 0 警告 0 错误（2026-10-21）。
 - 伤害系统（2026-10-21）：`Source/DotaDamageTypes.cs` + `Source/Harmony_DotaDamage.cs`；元素/来源分类、线程静态上下文栈；物理走 Dota 护甲（敏捷/6、装备原始点数、不扣原版护甲穿透）、法术走 Dota 2 魔抗（基础 25% + 智力 0.1%/点 + 装备，正魔抗乘算）；Dota 减伤后仍走原版护甲；通用减伤走 `IncomingDamageFactor`（加算、可为负，接口已留）；攻击/技能吸血在 `Pawn.PostApplyDamage` 用实际伤害结算，溅射不吸血。旧的 `StatPart_DotaHeroArmor` 与 ArmorRating 补丁已移除。
 
-- Dota 六格装备栏（2026-10-21）：`Source/HediffComp_DotaInventory.cs` 用独立 `ThingOwner<Thing>` 保存最多 6 件装备，装备不进入 `WornApparel`；`Source/FloatMenuOptionProvider_DotaEquip.cs` 支持右键地面装备，满 6 件显示“Dota 装备栏已满”；`Source/Gizmo_DotaEquipmentSlots.cs` 在属性栏旁显示六格；`HediffComp_DotaHero.EquippedBonus` 改为从六件装备汇总；死亡按用户要求不掉落（销毁），手动移除英雄会掉出。2026-10-21 重构：Dota 装备改为普通 ThingWithComps（DotaItemBase + DotaEquipmentExtension），删除 DotaGear 层与 Wear/隐藏 Wear 补丁；旧存档如仍有 WornApparel 装备，需要先用上一版迁移。
+- Dota 六格装备栏（2026-10-21）：`Source/HediffComp_DotaInventory.cs` 用独立 `ThingOwner<Thing>` 保存最多 6 件装备，装备不进入 `WornApparel`；`Source/Gizmo_DotaEquipmentSlots.cs` 按 3×2 显示六格（前三格在上、后三格在下）；`Source/FloatMenuOptionProvider_DotaEquip.cs` 支持右键地面装备，满 6 件显示“Dota 装备栏已满”，不可达时显示“无法到达 Dota 装备”，可达时通过 `JobDriver_DotaEquip` 让小人寻路到物品旁再装备；`HediffComp_DotaHero.EquippedBonus` 从六件装备汇总；死亡按用户要求不掉落（销毁），手动移除英雄会掉出。2026-10-21 重构：Dota 装备改为普通 ThingWithComps（DotaItemBase + DotaEquipmentExtension），删除 DotaGear 层与 Wear/隐藏 Wear 补丁；旧存档如仍有 WornApparel 装备，需要先用上一版迁移。
 
 ## 阻塞 / 待确认
-- StatPart 接线、回血池、32 件基础组件、伤害系统与六格装备栏已完成（XML + C#），但尚未游戏内验证：需确认右键装备、满 6 件拒绝、六格 UI、属性汇总、死亡/移除生命周期、物理/法术减伤、通用减伤、攻击/技能吸血、多伤口回血结算，以及日志无红字。
+- StatPart 接线、回血池、32 件基础组件、伤害系统与六格装备栏已完成（XML + C#），但尚未游戏内验证：需确认 3×2 六格 UI、远处右键后寻路装备、不可达禁用、满 6 件拒绝、属性汇总、死亡/移除生命周期、物理/法术减伤、通用减伤、攻击/技能吸血、多伤口回血结算，以及日志无红字。
 - 属性图标：已决定暂用红/绿/蓝占位圆点；真图标已定位到本机 Dota 2 VPK（`panorama/images/primary_attribute_icons/primary_attribute_icon_{strength,agility,intelligence}_psd.vtex_c` 等），为 Valve 编译纹理（BinaryKV3 + BC 压缩），待后续写 VTex 解码器或找 PNG 镜像，发布前需替换（Valve 版权）。
 - 属性成长值（growth）字段已建，全部为 0；等级/经验/成长系统未做。
 
