@@ -2,15 +2,15 @@
 <Defs>
 	<ResearchTabDef>
 		<defName>DotaResearchTab</defName>
-		<label>Dota</label>
-		<generalTitle>Dota 科技</generalTitle>
-		<generalDescription>Dota 主题科技的专属研究页。</generalDescription>
+		<label>遗迹</label>
+		<generalTitle>遗迹科技</generalTitle>
+		<generalDescription>研究月亮碎片与遗迹造物所承载的古代知识。</generalDescription>
 	</ResearchTabDef>
 
 	<ResearchProjectDef>
 		<defName>DotaTech1</defName>
 		<label>遗迹研究</label>
-		<description>研究月亮碎片中蕴含的古代知识，解锁 Dota 科技线的第一项。</description>
+		<description>研究月亮碎片中蕴含的古代知识，解锁遗迹科技线的第一项。</description>
 		<baseCost>200</baseCost>
 		<techLevel>Industrial</techLevel>
 		<tab>DotaResearchTab</tab>

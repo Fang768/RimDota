@@ -18,6 +18,27 @@ public static class DotaHeroUtil
 		return (hediff as HediffWithComps)?.TryGetComp<HediffComp_DotaHero>();
 	}
 
+	public static bool TryMakeHero(Pawn pawn, bool awaitInitialSetup)
+	{
+		if (pawn?.health?.hediffSet == null || IsHero(pawn))
+		{
+			return false;
+		}
+
+		pawn.health.AddHediff(DotaDefOf.DotaHero);
+		HediffComp_DotaHero heroComp = GetHeroComp(pawn);
+		if (heroComp == null)
+		{
+			return false;
+		}
+
+		if (awaitInitialSetup)
+		{
+			heroComp.BeginInitialSetup();
+		}
+		return true;
+	}
+
 	public static HediffComp_DotaInventory GetInventoryComp(Pawn pawn)
 	{
 		Hediff hediff = pawn?.health?.hediffSet?.GetFirstHediffOfDef(DotaDefOf.DotaHero);

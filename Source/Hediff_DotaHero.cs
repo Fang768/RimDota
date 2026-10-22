@@ -29,7 +29,22 @@ public class HediffComp_DotaHero : HediffComp
 	public HediffCompProperties_DotaHero Props => (HediffCompProperties_DotaHero)props;
 
 	/// <summary>英雄主属性，决定 Dota 属性栏中三维数据的着色。</summary>
-	public DotaPrimaryAttribute PrimaryAttribute => Props.primaryAttribute;
+	public DotaPrimaryAttribute PrimaryAttribute => primaryAttribute;
+
+	/// <summary>英雄是否仍在等待玩家完成初始属性分配。</summary>
+	public bool AwaitingInitialSetup => !initialSetupComplete;
+
+	public int HeroLevel => heroLevel;
+
+	public float Experience => experience;
+
+	public float ExperienceWithinLevel =>
+		experience - DotaHeroLeveling.TotalExperienceForLevel(heroLevel);
+
+	public float ExperienceForNextLevel => heroLevel >= DotaHeroLeveling.MaxLevel
+		? 0f
+		: DotaHeroLeveling.TotalExperienceForLevel(heroLevel + 1)
+			- DotaHeroLeveling.TotalExperienceForLevel(heroLevel);
 
 	/// <summary>当前待结算的 Dota 回血量（点）。</summary>
 	public float PendingHealing => pendingHealing;
@@ -44,6 +59,10 @@ public class HediffComp_DotaHero : HediffComp
 	private static readonly Comparison<Hediff_Injury> SeverityDescending = (a, b) => b.Severity.CompareTo(a.Severity);
 
 	private float mana = BaseMana;
+	private int heroLevel = 1;
+	private float experience;
+	private bool initialSetupComplete = true;
+	private DotaPrimaryAttribute primaryAttribute = DotaPrimaryAttribute.Universal;
 	private float strength = BaseAttribute;
 	private float agility = BaseAttribute;
 	private float intelligence = BaseAttribute;
@@ -125,6 +144,98 @@ public class HediffComp_DotaHero : HediffComp
 	{
 		get => intelligenceGrowth;
 		set => intelligenceGrowth = value;
+	}
+
+	public override void CompPostMake()
+	{
+		base.CompPostMake();
+		primaryAttribute = Props.primaryAttribute;
+	}
+
+	/// <summary>新英雄获得身份后进入待分配状态，并清空初始战斗属性。</summary>
+	public void BeginInitialSetup()
+	{
+		heroLevel = 1;
+		experience = 0f;
+		initialSetupComplete = false;
+		primaryAttribute = DotaPrimaryAttribute.Universal;
+		strength = 0f;
+		agility = 0f;
+		intelligence = 0f;
+		strengthGrowth = 0f;
+		agilityGrowth = 0f;
+		intelligenceGrowth = 0f;
+		mana = 0f;
+	}
+
+	public void ApplyInitialSetup(
+		DotaPrimaryAttribute primary,
+		float initialStrength,
+		float initialAgility,
+		float initialIntelligence,
+		float strengthPerLevel,
+		float agilityPerLevel,
+		float intelligencePerLevel)
+	{
+		primaryAttribute = primary;
+		strength = Mathf.Clamp(initialStrength, 0f, 35f);
+		agility = Mathf.Clamp(initialAgility, 0f, 35f);
+		intelligence = Mathf.Clamp(initialIntelligence, 0f, 35f);
+		strengthGrowth = RoundGrowth(Mathf.Clamp(strengthPerLevel, 0f, 5f));
+		agilityGrowth = RoundGrowth(Mathf.Clamp(agilityPerLevel, 0f, 5f));
+		intelligenceGrowth = RoundGrowth(Mathf.Clamp(intelligencePerLevel, 0f, 5f));
+		heroLevel = 1;
+		experience = 0f;
+		initialSetupComplete = true;
+		mana = MaxMana;
+		NotifyHeroStatsChanged();
+	}
+
+	private static float RoundGrowth(float value)
+	{
+		return Mathf.Round(value * 10f) / 10f;
+	}
+
+	public void AddExperience(float amount)
+	{
+		int startingLevel = heroLevel;
+		if (!initialSetupComplete
+			|| amount <= 0f
+			|| heroLevel >= DotaHeroLeveling.MaxLevel)
+		{
+			return;
+		}
+
+		experience += amount;
+		while (heroLevel < DotaHeroLeveling.MaxLevel
+			&& experience >= DotaHeroLeveling.TotalExperienceForLevel(heroLevel + 1))
+		{
+			heroLevel++;
+			strength += strengthGrowth;
+			agility += agilityGrowth;
+			intelligence += intelligenceGrowth;
+		}
+
+		if (heroLevel >= DotaHeroLeveling.MaxLevel)
+		{
+			experience = DotaHeroLeveling.TotalExperienceForLevel(DotaHeroLeveling.MaxLevel);
+		}
+		NotifyHeroStatsChanged();
+		if (heroLevel > startingLevel && Pawn != null)
+		{
+			Messages.Message(
+				Pawn.LabelShortCap + " 升至 Dota 等级 " + heroLevel + "。",
+				Pawn,
+				MessageTypeDefOf.PositiveEvent);
+		}
+	}
+
+	private void NotifyHeroStatsChanged()
+	{
+		if (Pawn?.health != null && parent != null)
+		{
+			Pawn.health.Notify_HediffChanged(parent);
+		}
 	}
 
 	/// <summary>生命上限倍率（力量部分）：力量 × 2%/点。</summary>
@@ -414,6 +525,13 @@ public class HediffComp_DotaHero : HediffComp
 	{
 		base.CompExposeData();
 		Scribe_Values.Look(ref mana, "mana", BaseMana);
+		Scribe_Values.Look(ref heroLevel, "heroLevel", 1);
+		Scribe_Values.Look(ref experience, "experience", 0f);
+		Scribe_Values.Look(ref initialSetupComplete, "initialSetupComplete", true);
+		Scribe_Values.Look(
+			ref primaryAttribute,
+			"primaryAttribute",
+			Props.primaryAttribute);
 		Scribe_Values.Look(ref strength, "strength", BaseAttribute);
 		Scribe_Values.Look(ref agility, "agility", BaseAttribute);
 		Scribe_Values.Look(ref intelligence, "intelligence", BaseAttribute);

@@ -18,10 +18,10 @@ public static class DotaHeroDebugActions
 			Log.Message("RimDota: 请先选中一个小人，再使用该调试操作。");
 			return;
 		}
-		if (!p.health.hediffSet.HasHediff(DotaDefOf.DotaHero))
+		if (DotaHeroUtil.TryMakeHero(p, awaitInitialSetup: true))
 		{
-			p.health.AddHediff(DotaDefOf.DotaHero);
-			Log.Message($"RimDota: {p.LabelShort} 已设为 Dota 英雄。");
+			Log.Message(
+				$"RimDota: {p.LabelShort} 已获得 Dota 英雄身份，等待分配初始属性。");
 		}
 	}
 
@@ -62,6 +62,6 @@ public static class DotaHeroDebugActions
 		{
 			totalMaxHp += part.def.GetMaxHealth(p);
 		}
-		Log.Message($"RimDota: {p.LabelShort} 力量={comp.Strength:F0} 敏捷={comp.Agility:F0} 智力={comp.Intelligence:F0} 生命倍率={comp.HealthScaleMult:F2} 总最大生命={totalMaxHp:F0} 回血={comp.HealthRegenPerSecond:F2}/秒 实际回血={comp.ActualHealthRegenPerSecond:F2}/秒 生命回复系数={RimDotaMod.Settings.HealthRegenBalanceScale:F2} 回蓝={comp.ManaRegenPerSecond:F2}/秒 护甲={comp.ArmorPoints:F2} 物理减伤={(1f - comp.PhysicalDamageMultiplier) * 100f:F1}% 魔抗={comp.MagicResistance * 100f:F1}% 法力上限={comp.MaxMana:F0} 攻击吸血={comp.AttackLifesteal * 100f:F0}% 技能吸血={comp.SpellLifesteal * 100f:F0}%");
+		Log.Message($"RimDota: {p.LabelShort} 等级={comp.HeroLevel} 经验={comp.Experience:F0} 主属性={comp.PrimaryAttribute} 力量={comp.Strength:F0}(+{comp.StrengthGrowth:F1}/级) 敏捷={comp.Agility:F0}(+{comp.AgilityGrowth:F1}/级) 智力={comp.Intelligence:F0}(+{comp.IntelligenceGrowth:F1}/级) 生命倍率={comp.HealthScaleMult:F2} 总最大生命={totalMaxHp:F0} 回血={comp.HealthRegenPerSecond:F2}/秒 实际回血={comp.ActualHealthRegenPerSecond:F2}/秒 生命回复系数={RimDotaMod.Settings.HealthRegenBalanceScale:F2} 回蓝={comp.ManaRegenPerSecond:F2}/秒 护甲={comp.ArmorPoints:F2} 物理减伤={(1f - comp.PhysicalDamageMultiplier) * 100f:F1}% 魔抗={comp.MagicResistance * 100f:F1}% 法力上限={comp.MaxMana:F0} 攻击吸血={comp.AttackLifesteal * 100f:F0}% 技能吸血={comp.SpellLifesteal * 100f:F0}%");
 	}
 }

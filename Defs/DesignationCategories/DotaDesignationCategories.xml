@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DesignationCategoryDef>
+		<defName>DotaRelicBuildings</defName>
+		<label>遗迹建筑</label>
+		<order>550</order>
+		<specialDesignatorClasses>
+			<li>Designator_Cancel</li>
+			<li>Designator_Deconstruct</li>
+		</specialDesignatorClasses>
+		<researchPrerequisites>
+			<li>DotaTech1</li>
+		</researchPrerequisites>
+	</DesignationCategoryDef>
+</Defs>

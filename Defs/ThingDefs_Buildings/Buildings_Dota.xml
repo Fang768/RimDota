@@ -23,4 +23,48 @@
 			</li>
 		</comps>
 	</ThingDef>
+
+	<!-- 邪月祭坛：可执行英雄觉醒献祭，后续也会作为工作台使用。 -->
+	<ThingDef ParentName="BenchBase">
+		<defName>DotaCrescentAltar</defName>
+		<label>邪月祭坛</label>
+		<description>由棕色石台与淡蓝色邪月核心构成的祭坛。可以献祭遗迹碎片，使一名殖民者获得 Dota 英雄身份。祭坛后续也可以作为工作台使用。</description>
+		<thingClass>Building_WorkTable</thingClass>
+		<graphicData>
+			<texPath>Things/Building/DotaCrescentAltar</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<costList>
+			<Jade>50</Jade>
+			<Steel>250</Steel>
+		</costList>
+		<stuffCategories>
+			<li>Stony</li>
+		</stuffCategories>
+		<costStuffCount>100</costStuffCount>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.5</fillPercent>
+		<useHitPoints>true</useHitPoints>
+		<statBases>
+			<WorkToBuild>6000</WorkToBuild>
+			<MaxHitPoints>300</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<size>(3,2)</size>
+		<designationCategory>DotaRelicBuildings</designationCategory>
+		<researchPrerequisites>
+			<li>DotaTech1</li>
+		</researchPrerequisites>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<hasInteractionCell>true</hasInteractionCell>
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<surfaceType>Item</surfaceType>
+		<inspectorTabs>
+			<li>ITab_Bills</li>
+		</inspectorTabs>
+		<placeWorkers>
+			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
+		</placeWorkers>
+	</ThingDef>
 </Defs>

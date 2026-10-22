@@ -40,9 +40,13 @@ public static class DotaDefOf
 
 	public static JobDef Dota_EquipItem;
 
+	public static JobDef Dota_SacrificeRelic;
+
 	public static ThingDef Dota_BladesOfAttack;
 
 	public static ThingDef DotaMoonShard;
+
+	public static ThingDef DotaCrescentAltar;
 
 	public static ThingDef DotaRelicFragment;
 

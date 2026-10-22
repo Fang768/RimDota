@@ -6,4 +6,10 @@
 		<reportString>装备 TargetA。</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
+	<JobDef>
+		<defName>Dota_SacrificeRelic</defName>
+		<driverClass>RimDota.JobDriver_DotaSacrificeRelic</driverClass>
+		<reportString>在 TargetA 献祭 TargetB。</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
 </Defs>
