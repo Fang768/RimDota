@@ -12,6 +12,8 @@ public static class DotaDefOf
 {
 	public static HediffDef DotaHero;
 
+	public static HediffDef DotaMaskOfMadnessBuff;
+
 	public static StatDef DotaStrengthBonus;
 
 	public static StatDef DotaAgilityBonus;
@@ -19,6 +21,8 @@ public static class DotaDefOf
 	public static StatDef DotaIntelligenceBonus;
 
 	public static StatDef DotaArmorBonus;
+
+	public static StatDef DotaAttackBonus;
 
 	public static StatDef DotaHealthRegenBonus;
 
@@ -30,7 +34,13 @@ public static class DotaDefOf
 
 	public static StatDef DotaAttackSpeedBonus;
 
+	public static StatDef DotaExternalAttackSpeedBonus;
+
 	public static StatDef DotaMagicResistance;
+
+	public static StatDef DotaRangedDodgeChance;
+
+	public static StatDef DotaExternalArmorBonus;
 
 	public static StatDef DotaUniversalDamageReduction;
 

@@ -43,6 +43,16 @@
 		<toStringStyle>Integer</toStringStyle>
 	</StatDef>
 	<StatDef>
+		<defName>DotaAttackBonus</defName>
+		<label>Dota attack damage</label>
+		<description>Attack damage granted by equipped Dota gear. Currently used for the Dota attack damage display only.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>-1000</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>FloatOne</toStringStyle>
+	</StatDef>
+	<StatDef>
 		<defName>DotaHealthRegenBonus</defName>
 		<label>Dota health regeneration bonus</label>
 		<description>Bonus health regeneration (per second) granted by equipped Dota gear.</description>
@@ -93,6 +103,16 @@
 		<toStringStyle>Integer</toStringStyle>
 	</StatDef>
 	<StatDef>
+		<defName>DotaExternalAttackSpeedBonus</defName>
+		<label>Dota temporary attack speed bonus</label>
+		<description>Attack speed points granted by temporary Dota equipment effects.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>-10000</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>Integer</toStringStyle>
+	</StatDef>
+	<StatDef>
 		<defName>DotaMagicResistance</defName>
 		<label>Dota magic resistance bonus</label>
 		<description>Bonus magic resistance (fraction) granted by equipped Dota gear.</description>
@@ -101,6 +121,27 @@
 		<minValue>-1</minValue>
 		<hideAtValue>0</hideAtValue>
 		<toStringStyle>PercentZero</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaRangedDodgeChance</defName>
+		<label>Dota ranged dodge chance</label>
+		<description>Dota ranged dodge chance. Currently used for the Dota attribute display only and does not affect projectile hit resolution.</description>
+		<category>PawnCombat</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>0</minValue>
+		<maxValue>1</maxValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>PercentZero</toStringStyle>
+	</StatDef>
+	<StatDef>
+		<defName>DotaExternalArmorBonus</defName>
+		<label>Dota temporary armor bonus</label>
+		<description>Raw Dota armor points granted by temporary equipment effects.</description>
+		<category>PawnMisc</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>-1000</minValue>
+		<hideAtValue>0</hideAtValue>
+		<toStringStyle>FloatOne</toStringStyle>
 	</StatDef>
 	<StatDef>
 		<defName>DotaUniversalDamageReduction</defName>

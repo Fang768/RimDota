@@ -22,4 +22,32 @@
 			<li Class="RimDota.HediffCompProperties_DotaInventory" />
 		</comps>
 	</HediffDef>
+
+	<HediffDef>
+		<defName>DotaMaskOfMadnessBuff</defName>
+		<label>狂热</label>
+		<description>获得 +100 攻击速度，近战获得 +12% 移动速度、远程获得 +8% 移动速度，但降低 7 点护甲并被沉默。持续 6 秒。</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<isBad>false</isBad>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>360</disappearsAfterTicks>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<!-- 30% slow resistance is tracked as part of the Dota item design but has no effect yet. -->
+				<statOffsets>
+					<DotaExternalAttackSpeedBonus>100</DotaExternalAttackSpeedBonus>
+					<DotaExternalArmorBonus>-7</DotaExternalArmorBonus>
+				</statOffsets>
+				<capMods>
+					<li>
+						<capacity>Talking</capacity>
+						<postFactor>0</postFactor>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
 </Defs>

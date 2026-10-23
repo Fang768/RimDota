@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<DotaStrengthBonus.label>力量</DotaStrengthBonus.label>
+	<DotaStrengthBonus.description>装备提供的力量。</DotaStrengthBonus.description>
+	<DotaAgilityBonus.label>敏捷</DotaAgilityBonus.label>
+	<DotaAgilityBonus.description>装备提供的敏捷。</DotaAgilityBonus.description>
+	<DotaIntelligenceBonus.label>智力</DotaIntelligenceBonus.label>
+	<DotaIntelligenceBonus.description>装备提供的智力。</DotaIntelligenceBonus.description>
+	<DotaArmorBonus.label>护甲</DotaArmorBonus.label>
+	<DotaArmorBonus.description>装备提供的 Dota 护甲点数。</DotaArmorBonus.description>
+	<DotaAttackBonus.label>攻击力</DotaAttackBonus.label>
+	<DotaAttackBonus.description>装备提供的攻击力，目前用于 Dota 属性界面显示。</DotaAttackBonus.description>
+	<DotaHealthRegenBonus.label>生命恢复</DotaHealthRegenBonus.label>
+	<DotaHealthRegenBonus.description>装备提供的每秒生命恢复。</DotaHealthRegenBonus.description>
+	<DotaMaxManaBonus.label>法力上限</DotaMaxManaBonus.label>
+	<DotaMaxManaBonus.description>装备提供的法力上限。</DotaMaxManaBonus.description>
+	<DotaMaxHealthBonus.label>生命上限</DotaMaxHealthBonus.label>
+	<DotaMaxHealthBonus.description>装备提供的生命上限。</DotaMaxHealthBonus.description>
+	<DotaManaRegenBonus.label>法力恢复</DotaManaRegenBonus.label>
+	<DotaManaRegenBonus.description>装备提供的每秒法力恢复。</DotaManaRegenBonus.description>
+	<DotaAttackSpeedBonus.label>攻击速度</DotaAttackSpeedBonus.label>
+	<DotaAttackSpeedBonus.description>装备提供的攻击速度点数。</DotaAttackSpeedBonus.description>
+	<DotaExternalAttackSpeedBonus.label>临时攻击速度</DotaExternalAttackSpeedBonus.label>
+	<DotaExternalAttackSpeedBonus.description>临时装备效果提供的攻击速度点数。</DotaExternalAttackSpeedBonus.description>
+	<DotaMagicResistance.label>魔法抗性</DotaMagicResistance.label>
+	<DotaMagicResistance.description>装备提供的魔法抗性。</DotaMagicResistance.description>
+	<DotaRangedDodgeChance.label>远程闪避</DotaRangedDodgeChance.label>
+	<DotaRangedDodgeChance.description>闪避远程攻击的几率。</DotaRangedDodgeChance.description>
+	<DotaExternalArmorBonus.label>临时护甲</DotaExternalArmorBonus.label>
+	<DotaExternalArmorBonus.description>临时装备效果提供的 Dota 护甲点数。</DotaExternalArmorBonus.description>
+	<DotaUniversalDamageReduction.label>通用伤害减免</DotaUniversalDamageReduction.label>
+	<DotaUniversalDamageReduction.description>减免所有伤害类型的通用减伤。</DotaUniversalDamageReduction.description>
+	<DotaAttackLifesteal.label>攻击吸血</DotaAttackLifesteal.label>
+	<DotaAttackLifesteal.description>攻击伤害转化为生命恢复的比例。</DotaAttackLifesteal.description>
+	<DotaSpellLifesteal.label>技能吸血</DotaSpellLifesteal.label>
+	<DotaSpellLifesteal.description>技能伤害转化为生命恢复的比例。</DotaSpellLifesteal.description>
+</LanguageData>

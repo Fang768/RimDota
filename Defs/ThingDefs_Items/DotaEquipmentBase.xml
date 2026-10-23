@@ -33,6 +33,7 @@
 		<comps>
 			<li Class="CompProperties_Forbiddable" />
 			<li Class="RimDota.CompProperties_DotaEquipmentLock" />
+			<li Class="RimDota.CompProperties_DotaEquipmentCooldown" />
 		</comps>
 		<modExtensions>
 			<li Class="RimDota.DotaEquipmentExtension" />

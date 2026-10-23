@@ -1,3 +1,4 @@
+using RimWorld;
 using Verse;
 
 namespace RimDota;
@@ -7,6 +8,15 @@ namespace RimDota;
 /// </summary>
 public static class DotaHeroUtil
 {
+	/// <summary>
+	/// 获取 StatRequest 关联的小人。
+	/// 小人自身的 Stat 请求把 Pawn 放在 Thing 上，装备请求则放在 Pawn 上。
+	/// </summary>
+	public static Pawn RequestPawn(StatRequest request)
+	{
+		return request.Thing as Pawn ?? request.Pawn;
+	}
+
 	public static bool IsHero(Pawn pawn)
 	{
 		return pawn?.health?.hediffSet?.HasHediff(DotaDefOf.DotaHero) ?? false;

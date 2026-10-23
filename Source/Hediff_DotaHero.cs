@@ -22,6 +22,9 @@ public class HediffComp_DotaHero : HediffComp
 {
 	public const float BaseMana = 200f;
 	public const float BaseAttribute = 20f;
+	public const float BaseAttackSpeed = 100f;
+	public const float MinAttackSpeed = 20f;
+	public const float MaxAttackSpeed = 500f;
 
 	private const int RegenIntervalTicks = 15;
 	private const float MinSettleHealing = 0.1f;
@@ -74,6 +77,8 @@ public class HediffComp_DotaHero : HediffComp
 	private float agilityGrowth;
 	private float intelligenceGrowth;
 	private float bonusHealthScaleMult;
+	private float baseAttackDamageBonus;
+	private float bonusAttackDamageBonus;
 	private float bonusHealthRegen;
 	private float bonusArmor;
 	private float bonusAimAndCooldown;
@@ -247,9 +252,6 @@ public class HediffComp_DotaHero : HediffComp
 	/// <summary>护甲基础值（Dota 原始护甲点数）：敏捷 × 1/6。</summary>
 	public float ArmorFromAgility => Agility / 6f;
 
-	/// <summary>瞄准/攻速基础加成：敏捷 × -0.5%/点。</summary>
-	public float AimAndCooldownFromAgility => Agility * -0.005f;
-
 	/// <summary>法力上限基础值：智力 × 5。</summary>
 	public float MaxManaFromIntelligence => Intelligence * 5f;
 
@@ -280,7 +282,7 @@ public class HediffComp_DotaHero : HediffComp
 		set => bonusArmor = value;
 	}
 
-	/// <summary>装备等外部来源的瞄准/攻速加成。</summary>
+	/// <summary>旧版线性攻速字段，保留存档兼容；不再参与实际计算。</summary>
 	public float BonusAimAndCooldown
 	{
 		get => bonusAimAndCooldown;
@@ -348,6 +350,52 @@ public class HediffComp_DotaHero : HediffComp
 	/// <summary>最终增加的生命上限（百分比点数）：力量 ×2 + 装备扁平/10。</summary>
 	public float FinalMaxHealthBonusPercent => (HealthScaleMult - 1f) * 100f;
 
+	/// <summary>主属性提供的基础攻击力属性部分。全才每点三围提供 0.5。</summary>
+	public float AttributeAttackDamage => PrimaryAttribute switch
+	{
+		DotaPrimaryAttribute.Strength => Strength,
+		DotaPrimaryAttribute.Agility => Agility,
+		DotaPrimaryAttribute.Intelligence => Intelligence,
+		_ => (Strength + Agility + Intelligence) * 0.5f,
+	};
+
+	/// <summary>基础攻击力 = 主属性基础攻击力 + 其他基础攻击力加成。</summary>
+	public float BaseAttackDamage => AttributeAttackDamage + baseAttackDamageBonus;
+
+	/// <summary>装备提供、在 UI 中显示为绿色的攻击力。</summary>
+	public float EquipmentAttackDamage => EquippedBonus(DotaDefOf.DotaAttackBonus);
+
+	/// <summary>额外攻击力 = 装备攻击力 + 其他额外攻击力加成。</summary>
+	public float BonusAttackDamage => EquipmentAttackDamage + bonusAttackDamageBonus;
+
+	public float TotalAttackDamage => BaseAttackDamage + BonusAttackDamage;
+
+	/// <summary>Dota 总攻击速度：100 为基础，限制在 20~500。</summary>
+	public float DisplayAttackSpeed => Mathf.Clamp(
+		BaseAttackSpeed
+			+ Agility
+			+ EquippedBonus(DotaDefOf.DotaAttackSpeedBonus)
+			+ (Pawn?.GetStatValue(DotaDefOf.DotaExternalAttackSpeedBonus) ?? 0f),
+		MinAttackSpeed,
+		MaxAttackSpeed);
+
+	/// <summary>RimWorld 攻击间隔倍率 = 100 / Dota 总攻速。</summary>
+	public float AttackCooldownMultiplier => BaseAttackSpeed / DisplayAttackSpeed;
+
+	/// <summary>永久或临时基础攻击力加成，由外部效果写入。</summary>
+	public float BaseAttackDamageBonus
+	{
+		get => baseAttackDamageBonus;
+		set => baseAttackDamageBonus = value;
+	}
+
+	/// <summary>永久或临时额外攻击力加成（不含装备），由外部效果写入。</summary>
+	public float BonusAttackDamageBonus
+	{
+		get => bonusAttackDamageBonus;
+		set => bonusAttackDamageBonus = value;
+	}
+
 	/// <summary>显示用生命回复（点/秒）= 力量部分 + 装备部分，不受平衡系数影响。</summary>
 	public float HealthRegenPerSecond => HealthRegenFromStrength
 		+ bonusHealthRegen
@@ -358,7 +406,10 @@ public class HediffComp_DotaHero : HediffComp
 		* RimDotaMod.Settings.HealthRegenBalanceScale;
 
 	/// <summary>最终 Dota 护甲点数 = 敏捷/6 + 装备护甲 + 其他加成。</summary>
-	public float ArmorPoints => ArmorFromAgility + bonusArmor + EquippedBonus(DotaDefOf.DotaArmorBonus);
+	public float ArmorPoints => ArmorFromAgility
+		+ bonusArmor
+		+ EquippedBonus(DotaDefOf.DotaArmorBonus)
+		+ (Pawn?.GetStatValue(DotaDefOf.DotaExternalArmorBonus) ?? 0f);
 
 	/// <summary>Dota 物理伤害倍率（不扣原版护甲穿透）。</summary>
 	public float PhysicalDamageMultiplier
@@ -392,9 +443,6 @@ public class HediffComp_DotaHero : HediffComp
 
 	/// <summary>装备提供的攻击速度点数。</summary>
 	public float EquipmentAttackSpeed => EquippedBonus(DotaDefOf.DotaAttackSpeedBonus);
-
-	/// <summary>最终瞄准/攻速加成 = 敏捷部分 + 装备攻速 + 外部加成；1 点攻速 = -0.5% 冷却。</summary>
-	public float AimAndCooldownFactor => AimAndCooldownFromAgility + bonusAimAndCooldown + EquipmentAttackSpeed * -0.005f;
 
 	/// <summary>最终法力上限 = 基础 200 + 智力部分 + 装备部分。</summary>
 	public float MaxMana => BaseMana + MaxManaFromIntelligence + bonusMaxMana + EquippedBonus(DotaDefOf.DotaMaxManaBonus);
@@ -436,6 +484,20 @@ public class HediffComp_DotaHero : HediffComp
 
 	/// <summary>法力百分比（0~1），用于画条。</summary>
 	public float ManaPercent => MaxMana > 0f ? mana / MaxMana : 0f;
+
+	public bool TrySpendMana(float amount)
+	{
+		if (amount <= 0f)
+		{
+			return true;
+		}
+		if (mana < amount)
+		{
+			return false;
+		}
+		Mana -= amount;
+		return true;
+	}
 
 	public override void CompPostTick(ref float severityAdjustment)
 	{
@@ -539,6 +601,8 @@ public class HediffComp_DotaHero : HediffComp
 		Scribe_Values.Look(ref agilityGrowth, "agilityGrowth", 0f);
 		Scribe_Values.Look(ref intelligenceGrowth, "intelligenceGrowth", 0f);
 		Scribe_Values.Look(ref bonusHealthScaleMult, "bonusHealthScaleMult", 0f);
+		Scribe_Values.Look(ref baseAttackDamageBonus, "baseAttackDamageBonus", 0f);
+		Scribe_Values.Look(ref bonusAttackDamageBonus, "bonusAttackDamageBonus", 0f);
 		Scribe_Values.Look(ref bonusHealthRegen, "bonusHealthRegen", 0f);
 		Scribe_Values.Look(ref bonusArmor, "bonusArmor", 0f);
 		Scribe_Values.Look(ref bonusAimAndCooldown, "bonusAimAndCooldown", 0f);
@@ -555,7 +619,7 @@ public class HediffComp_DotaHero : HediffComp
 
 	public override IEnumerable<Gizmo> CompGetGizmos()
 	{
-		yield return new Gizmo_DotaAttributes(this);
+		yield return new Gizmo_DotaHeroStatus(this);
 	}
 }
 

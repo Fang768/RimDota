@@ -4,14 +4,13 @@ using Verse;
 namespace RimDota;
 
 /// <summary>
-/// 给瞄准/冷却类 Stat 添加 Dota 英雄的最终攻速加成：
-/// 敏捷贡献 + 装备攻速，统一由 AimAndCooldownFactor 提供。
+/// 将 Dota 总攻速换算为 RimWorld 攻击间隔倍率，并应用到瞄准和冷却。
 /// </summary>
 public class StatPart_DotaHeroAttackSpeed : StatPart
 {
 	public override void TransformValue(StatRequest req, ref float val)
 	{
-		Pawn pawn = req.Pawn;
+		Pawn pawn = DotaHeroUtil.RequestPawn(req);
 		if (pawn == null || !DotaHeroUtil.IsHero(pawn))
 		{
 			return;
@@ -19,13 +18,13 @@ public class StatPart_DotaHeroAttackSpeed : StatPart
 		HediffComp_DotaHero comp = DotaHeroUtil.GetHeroComp(pawn);
 		if (comp != null)
 		{
-			val *= 1f + comp.AimAndCooldownFactor;
+			val *= comp.AttackCooldownMultiplier;
 		}
 	}
 
 	public override string ExplanationPart(StatRequest req)
 	{
-		Pawn pawn = req.Pawn;
+		Pawn pawn = DotaHeroUtil.RequestPawn(req);
 		if (pawn == null || !DotaHeroUtil.IsHero(pawn))
 		{
 			return null;
@@ -35,6 +34,7 @@ public class StatPart_DotaHeroAttackSpeed : StatPart
 		{
 			return null;
 		}
-		return "Dota 瞄准/攻速: " + (comp.AimAndCooldownFactor * 100f).ToString("+0.##;-0.##;0") + "%";
+		return "Dota 攻速: " + comp.DisplayAttackSpeed.ToString("0")
+			+ "（攻击间隔 ×" + comp.AttackCooldownMultiplier.ToString("0.##") + "）";
 	}
 }

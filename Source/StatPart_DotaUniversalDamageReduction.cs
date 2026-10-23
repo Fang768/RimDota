@@ -13,7 +13,7 @@ public class StatPart_DotaUniversalDamageReduction : StatPart
 {
 	public override void TransformValue(StatRequest req, ref float val)
 	{
-		Pawn pawn = req.Pawn;
+		Pawn pawn = DotaHeroUtil.RequestPawn(req);
 		if (pawn == null || !DotaHeroUtil.IsHero(pawn))
 		{
 			return;
@@ -30,7 +30,7 @@ public class StatPart_DotaUniversalDamageReduction : StatPart
 
 	public override string ExplanationPart(StatRequest req)
 	{
-		Pawn pawn = req.Pawn;
+		Pawn pawn = DotaHeroUtil.RequestPawn(req);
 		if (pawn == null || !DotaHeroUtil.IsHero(pawn))
 		{
 			return null;

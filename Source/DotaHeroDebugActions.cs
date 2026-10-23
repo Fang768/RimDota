@@ -1,4 +1,5 @@
 using LudeonTK;
+using RimWorld;
 using Verse;
 
 namespace RimDota;
@@ -62,6 +63,6 @@ public static class DotaHeroDebugActions
 		{
 			totalMaxHp += part.def.GetMaxHealth(p);
 		}
-		Log.Message($"RimDota: {p.LabelShort} 等级={comp.HeroLevel} 经验={comp.Experience:F0} 主属性={comp.PrimaryAttribute} 力量={comp.Strength:F0}(+{comp.StrengthGrowth:F1}/级) 敏捷={comp.Agility:F0}(+{comp.AgilityGrowth:F1}/级) 智力={comp.Intelligence:F0}(+{comp.IntelligenceGrowth:F1}/级) 生命倍率={comp.HealthScaleMult:F2} 总最大生命={totalMaxHp:F0} 回血={comp.HealthRegenPerSecond:F2}/秒 实际回血={comp.ActualHealthRegenPerSecond:F2}/秒 生命回复系数={RimDotaMod.Settings.HealthRegenBalanceScale:F2} 回蓝={comp.ManaRegenPerSecond:F2}/秒 护甲={comp.ArmorPoints:F2} 物理减伤={(1f - comp.PhysicalDamageMultiplier) * 100f:F1}% 魔抗={comp.MagicResistance * 100f:F1}% 法力上限={comp.MaxMana:F0} 攻击吸血={comp.AttackLifesteal * 100f:F0}% 技能吸血={comp.SpellLifesteal * 100f:F0}%");
+		Log.Message($"RimDota: {p.LabelShort} 等级={comp.HeroLevel} 经验={comp.Experience:F0} 主属性={comp.PrimaryAttribute} 基础攻击={comp.BaseAttackDamage:F1} 额外攻击={comp.BonusAttackDamage:F1} 总攻击={comp.TotalAttackDamage:F1} 显示攻速={comp.DisplayAttackSpeed:F0} 攻击间隔倍率={comp.AttackCooldownMultiplier:F3} 瞄准倍率={p.GetStatValue(StatDefOf.AimingDelayFactor):F3} 远程冷却倍率={p.GetStatValue(StatDefOf.RangedCooldownFactor):F3} 近战冷却倍率={p.GetStatValue(StatDefOf.MeleeCooldownFactor):F3} 力量={comp.Strength:F0}(+{comp.StrengthGrowth:F1}/级) 敏捷={comp.Agility:F0}(+{comp.AgilityGrowth:F1}/级) 智力={comp.Intelligence:F0}(+{comp.IntelligenceGrowth:F1}/级) 生命倍率={comp.HealthScaleMult:F2} 总最大生命={totalMaxHp:F0} 回血={comp.HealthRegenPerSecond:F2}/秒 实际回血={comp.ActualHealthRegenPerSecond:F2}/秒 生命回复系数={RimDotaMod.Settings.HealthRegenBalanceScale:F2} 回蓝={comp.ManaRegenPerSecond:F2}/秒 护甲={comp.ArmorPoints:F2} 物理减伤={(1f - comp.PhysicalDamageMultiplier) * 100f:F1}% 魔抗={comp.MagicResistance * 100f:F1}% 法力上限={comp.MaxMana:F0} 攻击吸血={comp.AttackLifesteal * 100f:F0}% 技能吸血={comp.SpellLifesteal * 100f:F0}%");
 	}
 }

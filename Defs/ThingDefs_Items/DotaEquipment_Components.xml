@@ -7,7 +7,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_BandOfElvenskin</defName>
 		<label>精灵布带</label>
-		<description>Dota 2 的基础装备，提供 +6 敏捷。</description>
+		<description>Dota 2 的基础装备，提供 +6 敏捷。\n\n&lt;i&gt;轻巧且便于行动的柔韧纺织物。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaBandOfElvenskin</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -24,7 +24,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_BladeOfAlacrity</defName>
 		<label>欢欣之刃</label>
-		<description>Dota 2 的基础装备，提供 +10 敏捷。</description>
+		<description>Dota 2 的基础装备，提供 +10 敏捷。\n\n&lt;i&gt;一把充满时间魔法的长刃。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaBladeOfAlacrity</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -41,7 +41,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_BootsOfSpeed</defName>
 		<label>速度之靴</label>
-		<description>Dota 2 的基础装备。原效果：+45 移动速度（待实现）。</description>
+		<description>Dota 2 的基础装备。原效果：+45 移动速度（待实现）。\n\n&lt;i&gt;穿双鞋子，跑的更快。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaBootsOfSpeed</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -55,7 +55,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_Broadsword</defName>
 		<label>阔剑</label>
-		<description>Dota 2 的基础装备。原效果：+15 攻击力（待实现）。</description>
+		<description>Dota 2 的基础装备，提供 +15 攻击力。攻击力目前仅用于 Dota 属性界面显示。\n\n&lt;i&gt;骑士经典的武器选择，这把坚固的利刃用于杀敌相当可靠。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaBroadsword</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -64,12 +64,15 @@
 			<Mass>0.4</Mass>
 		</statBases>
 		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaAttackBonus>15</DotaAttackBonus>
+		</equippedStatOffsets>
 	</ThingDef>
 
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_Chainmail</defName>
 		<label>锁子甲</label>
-		<description>Dota 2 的基础装备，提供 +4 护甲。</description>
+		<description>Dota 2 的基础装备，提供 +4 护甲。\n\n&lt;i&gt;金属锁链制成的编织甲。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaChainmail</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -86,7 +89,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_Circlet</defName>
 		<label>圆环</label>
-		<description>Dota 2 的基础装备，提供 +2 力量、敏捷和智力。</description>
+		<description>Dota 2 的基础装备，提供 +2 力量、敏捷和智力。\n\n&lt;i&gt;为人类公主们设计的雅致头环。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaCirclet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -105,7 +108,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_Diadem</defName>
 		<label>宝冕</label>
-		<description>Dota 2 的基础装备，提供 +6 力量、敏捷和智力。</description>
+		<description>Dota 2 的基础装备，提供 +6 力量、敏捷和智力。\n\n&lt;i&gt;一顶永远无法摘下的冠冕。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaDiadem</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -124,7 +127,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_MithrilHammer</defName>
 		<label>秘银锤</label>
-		<description>Dota 2 的基础装备。原效果：+24 攻击力（待实现）。</description>
+		<description>Dota 2 的基础装备，提供 +24 攻击力。攻击力目前仅用于 Dota 属性界面显示。\n\n&lt;i&gt;由纯粹的秘银打造而成的锤子。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaMithrilHammer</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -133,12 +136,15 @@
 			<Mass>0.5</Mass>
 		</statBases>
 		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaAttackBonus>24</DotaAttackBonus>
+		</equippedStatOffsets>
 	</ThingDef>
 
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_MorbidMask</defName>
 		<label>吸血面具</label>
-		<description>Dota 2 的基础装备，提供 +18% 攻击吸血。</description>
+		<description>Dota 2 的基础装备，提供 +18% 攻击吸血。\n\n&lt;i&gt;这个面具会吸取被它凝视之人的生命力。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaMorbidMask</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -155,7 +161,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_MysticStaff</defName>
 		<label>神秘法杖</label>
-		<description>Dota 2 的基础装备，提供 +25 智力。</description>
+		<description>Dota 2 的基础装备，提供 +25 智力。\n\n&lt;i&gt;这根谜一般的法杖是由最贵重的水晶做成的。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaMysticStaff</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -172,7 +178,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_OgreAxe</defName>
 		<label>食人魔之斧</label>
-		<description>Dota 2 的基础装备，提供 +10 力量。</description>
+		<description>Dota 2 的基础装备，提供 +10 力量。\n\n&lt;i&gt;只要双手握着就会变得强壮。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaOgreAxe</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -189,7 +195,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_OrbOfBlight</defName>
 		<label>枯萎之珠</label>
-		<description>Dota 2 的基础装备。原效果：攻击使敌人护甲降低 2 点，持续 3 秒（待实现）。</description>
+		<description>Dota 2 的基础装备。原效果：攻击使敌人护甲降低 2 点，持续 3 秒（待实现）。\n\n&lt;i&gt;一颗让人闻风丧胆的石头，发掘自戮尽之地。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaOrbOfBlight</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -203,7 +209,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_OrbOfFrost</defName>
 		<label>冰霜之珠</label>
-		<description>Dota 2 的基础装备。原效果：攻击减速敌人并降低其治疗效果（待实现）。</description>
+		<description>Dota 2 的基础装备。原效果：攻击减速敌人并降低其治疗效果（待实现）。\n\n&lt;i&gt;在宇宙伊始就缓慢成长，到了成长完毕的时候它将覆盖万物。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaOrbOfFrost</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -217,7 +223,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_OrbOfVenom</defName>
 		<label>淬毒之珠</label>
-		<description>Dota 2 的基础装备。原效果：攻击使敌人中毒（待实现）。</description>
+		<description>Dota 2 的基础装备。原效果：攻击使敌人中毒（待实现）。\n\n&lt;i&gt;给你的毒器渡上毒蛇的毒液。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaOrbOfVenom</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -231,7 +237,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_Platemail</defName>
 		<label>板甲</label>
-		<description>Dota 2 的基础装备，提供 +10 护甲。</description>
+		<description>Dota 2 的基础装备，提供 +10 护甲。\n\n&lt;i&gt;保护整个上身的厚重金属板。注意别砸到脚。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaPlatemail</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -248,7 +254,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_PointBooster</defName>
 		<label>精气之球</label>
-		<description>Dota 2 的基础装备，提供 +175 法力上限和 +175 生命上限。</description>
+		<description>Dota 2 的基础装备，提供 +175 法力上限和 +175 生命上限。\n\n&lt;i&gt;一块完美成型的紫水晶，持有时可以滋养身体和心灵。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaPointBooster</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -266,7 +272,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_Quarterstaff</defName>
 		<label>短棍</label>
-		<description>Dota 2 的基础装备，提供 +10 攻击速度（+10 攻击力待实现）。</description>
+		<description>Dota 2 的基础装备，提供 +10 攻击速度（+10 攻击力待实现）。\n\n&lt;i&gt;能让你攻击变快的普通棍子。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaQuarterstaff</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -283,7 +289,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_RingOfHealth</defName>
 		<label>治疗指环</label>
-		<description>Dota 2 的基础装备，提供 +4.5 生命回复/秒。</description>
+		<description>Dota 2 的基础装备，提供 +4.5 生命回复/秒。\n\n&lt;i&gt;一枚闪闪发光的指环，在一个胖乎乎的半身人尸体下被人所发现。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaRingOfHealth</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -300,7 +306,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_RingOfProtection</defName>
 		<label>守护指环</label>
-		<description>Dota 2 的基础装备，提供 +2 护甲。</description>
+		<description>Dota 2 的基础装备，提供 +2 护甲。\n\n&lt;i&gt;能保护佩戴者的闪光戒指。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaRingOfProtection</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -317,7 +323,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_RingOfRegen</defName>
 		<label>回复戒指</label>
-		<description>Dota 2 的基础装备，提供 +1.25 生命回复/秒。</description>
+		<description>Dota 2 的基础装备，提供 +1.25 生命回复/秒。\n\n&lt;i&gt;一些侏儒迷信这个戒指能带来好运气。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaRingOfRegen</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -334,7 +340,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_RingOfTarrasque</defName>
 		<label>恐鳌之戒</label>
-		<description>Dota 2 的基础装备，提供 +12 生命回复/秒。</description>
+		<description>Dota 2 的基础装备，提供 +12 生命回复/秒。\n\n&lt;i&gt;一枚永恒的戒指，铸造时使用了一种原本非常简单的血魔法，据推断是主要成分的来源加强了功效。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaRingOfTarrasque</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -351,7 +357,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_RobeOfTheMagi</defName>
 		<label>法师长袍</label>
-		<description>Dota 2 的基础装备，提供 +6 智力。</description>
+		<description>Dota 2 的基础装备，提供 +6 智力。\n\n&lt;i&gt;这个长袍将腐化使用者的灵魂，并以给予智慧作为交换。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaRobeOfTheMagi</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -368,7 +374,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_SagesMask</defName>
 		<label>贤者面罩</label>
-		<description>Dota 2 的基础装备，提供 +0.7 法力回复/秒。</description>
+		<description>Dota 2 的基础装备，提供 +0.7 法力回复/秒。\n\n&lt;i&gt;法师和术士在各类祭祀中常用的面罩。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaSagesMask</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -385,7 +391,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_ShadowAmulet</defName>
 		<label>暗影护符</label>
-		<description>Dota 2 的主动装备。原效果：使用后进入隐身（主动技能待实现）。</description>
+		<description>Dota 2 的主动装备。原效果：使用后进入隐身（主动技能待实现）。\n\n&lt;i&gt;一件小小的护符，握住了完全不动就能隔开敌人的感应。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaShadowAmulet</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -399,7 +405,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_Shawl</defName>
 		<label>披巾</label>
-		<description>Dota 2 的基础装备，提供 +10% 魔法抗性。</description>
+		<description>Dota 2 的基础装备，提供 +10% 魔法抗性。\n\n&lt;i&gt;一顶用魔法材料制成的斗篷，可以驱散一切施加于其上的魔法。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaShawl</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -430,7 +436,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_TownPortalScroll</defName>
 		<label>回城卷轴</label>
-		<description>Dota 2 的主动装备。原效果：传送至友方建筑（主动技能待实现）。</description>
+		<description>Dota 2 的主动装备。原效果：传送至友方建筑（主动技能待实现）。\n\n&lt;i&gt;英雄真正需要的东西。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaTownPortalScroll</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -444,7 +450,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_UltimateOrb</defName>
 		<label>极限法球</label>
-		<description>Dota 2 的基础装备，提供 +15 力量、敏捷和智力。</description>
+		<description>Dota 2 的基础装备，提供 +15 力量、敏捷和智力。\n\n&lt;i&gt;蕴含生命本质的神秘法球。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaUltimateOrb</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -463,7 +469,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_VitalityBooster</defName>
 		<label>活力之球</label>
-		<description>Dota 2 的基础装备，提供 +250 生命上限。</description>
+		<description>Dota 2 的基础装备，提供 +250 生命上限。\n\n&lt;i&gt;一块在战士家族中世代相传的红宝石。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaVitalityBooster</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -480,7 +486,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_VoidStone</defName>
 		<label>虚无宝石</label>
-		<description>Dota 2 的基础装备，提供 +1.75 法力回复/秒。</description>
+		<description>Dota 2 的基础装备，提供 +1.75 法力回复/秒。\n\n&lt;i&gt;一件曾被用来引导冥界魔法的珠宝，这个戒指中跃动着魔力。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaVoidStone</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -497,7 +503,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_VoodooMask</defName>
 		<label>巫毒面具</label>
-		<description>Dota 2 的基础装备，提供 +15% 技能吸血。</description>
+		<description>Dota 2 的基础装备，提供 +15% 技能吸血。\n\n&lt;i&gt;一副面具，适合从施法者和敌人之间的奥术维系里吸收少许。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaVoodooMask</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -514,7 +520,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_WindLace</defName>
 		<label>风灵之纹</label>
-		<description>Dota 2 的基础装备。原效果：+15 移动速度（待实现）。</description>
+		<description>Dota 2 的基础装备。原效果：+15 移动速度（待实现）。\n\n&lt;i&gt;脚跟经过轻风的吹拂，在战斗中更加轻盈。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaWindLace</texPath>
 			<graphicClass>Graphic_Single</graphicClass>

@@ -3,7 +3,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_BladesOfAttack</defName>
 		<label>攻击之刃</label>
-		<description>Dota 2 的基础攻击装备。目前暂无属性，仅作为 Dota 装备栏的示例。</description>
+		<description>Dota 2 的基础攻击装备，提供 +9 攻击力。攻击力目前仅用于 Dota 属性界面显示。\n\n&lt;i&gt;里面藏着的小尖刃不容小觑。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/BladesOfAttack</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -12,12 +12,15 @@
 			<Mass>0.3</Mass>
 		</statBases>
 		<smeltable>false</smeltable>
+		<equippedStatOffsets>
+			<DotaAttackBonus>9</DotaAttackBonus>
+		</equippedStatOffsets>
 	</ThingDef>
 
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_StrengthGloves</defName>
 		<label>力量手套</label>
-		<description>Dota 2 的力量装备，装备后力量 +3。占位装备，用于测试属性加成。</description>
+		<description>Dota 2 的力量装备，装备后力量 +3。占位装备，用于测试属性加成。\n\n&lt;i&gt;带来野兽般力量的钉饰皮革手套。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaStrengthGloves</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -34,7 +37,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_AgilitySlippers</defName>
 		<label>敏捷便鞋</label>
-		<description>Dota 2 的敏捷装备，装备后敏捷 +3。占位装备，用于测试属性加成。</description>
+		<description>Dota 2 的敏捷装备，装备后敏捷 +3。占位装备，用于测试属性加成。\n\n&lt;i&gt;蜘蛛皮做成的轻便靴子，能让你感觉到刺痛。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaAgilitySlippers</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -51,7 +54,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_IntelligenceCloak</defName>
 		<label>智力斗篷</label>
-		<description>Dota 2 的智力装备，装备后智力 +3。占位装备，用于测试属性加成。</description>
+		<description>Dota 2 的智力装备，装备后智力 +3。占位装备，用于测试属性加成。\n\n&lt;i&gt;历代女王都穿过的美丽斗篷，上面镶有蓝宝石。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaIntelligenceCloak</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -68,7 +71,7 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_StrengthBelt</defName>
 		<label>力量腰带</label>
-		<description>Dota 2 的力量装备，装备后力量 +5。</description>
+		<description>Dota 2 的力量装备，装备后力量 +5。\n\n&lt;i&gt;提高活力的重要配件。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaStrengthBelt</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -85,7 +88,8 @@
 	<ThingDef ParentName="DotaItemBase">
 		<defName>Dota_MaskOfMadness</defName>
 		<label>疯狂面具</label>
-		<description>Dota 2 的合成装备，提供 +24% 攻击吸血。原效果：+20 攻击力；主动“狂怒”持续 6 秒，提供 +100 攻击速度、近战 +12%/远程 +8% 移动速度和 +30% 减速抗性，但降低 7 点护甲并被沉默；冷却 16 秒，消耗 25 点法力（攻击力与主动效果待实现）。</description>
+		<!-- Slow resistance: 30%. Not exposed in the in-game description; effect pending implementation. -->
+		<description>提供 +20 攻击力和 +24% 攻击吸血。\n\n主动：进入狂热，获得 +100 攻击速度和移动速度加成，但降低 7 点护甲并被沉默。近战获得 +12% 移动速度，远程获得 +8% 移动速度。持续 6 秒。\n\n冷却：16 秒\n法力消耗：25\n\n&lt;i&gt;一旦戴上这个面具就会变成无法控制的好战分子。&lt;/i&gt;</description>
 		<graphicData>
 			<texPath>Things/Item/Equipment/DotaMaskOfMadness</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -96,6 +100,17 @@
 		<smeltable>false</smeltable>
 		<equippedStatOffsets>
 			<DotaAttackLifesteal>0.24</DotaAttackLifesteal>
+			<DotaAttackBonus>20</DotaAttackBonus>
 		</equippedStatOffsets>
+		<modExtensions>
+			<li Class="RimDota.DotaEquipmentExtension" />
+			<li Class="RimDota.DotaActiveItemExtension">
+				<manaCost>25</manaCost>
+				<cooldownTicks>960</cooldownTicks>
+				<cooldownGroup>DotaMaskOfMadness</cooldownGroup>
+				<useMode>Self</useMode>
+				<effectHediff>DotaMaskOfMadnessBuff</effectHediff>
+			</li>
+		</modExtensions>
 	</ThingDef>
 </Defs>
