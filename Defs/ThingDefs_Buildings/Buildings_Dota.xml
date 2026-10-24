@@ -67,4 +67,36 @@
 			<li>PlaceWorker_PreventInteractionSpotOverlap</li>
 		</placeWorkers>
 	</ThingDef>
+
+	<!-- 邪月观测阵列：由“邪月天体学”解锁的遗迹观测建筑。 -->
+	<ThingDef ParentName="BuildingBase">
+		<defName>DotaCrescentObservatoryArray</defName>
+		<label>邪月观测阵列</label>
+		<description>用于观测邪月天体的遗迹阵列。其结构仍有许多部分尚未被理解。</description>
+		<graphicData>
+			<texPath>Things/Building/DotaCrescentObservatoryArray</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+		</graphicData>
+		<size>(2,2)</size>
+		<altitudeLayer>Building</altitudeLayer>
+		<fillPercent>0.4</fillPercent>
+		<useHitPoints>true</useHitPoints>
+		<passability>PassThroughOnly</passability>
+		<pathCost>50</pathCost>
+		<costList>
+			<Steel>200</Steel>
+			<ComponentIndustrial>10</ComponentIndustrial>
+			<Jade>25</Jade>
+		</costList>
+		<statBases>
+			<WorkToBuild>12000</WorkToBuild>
+			<MaxHitPoints>500</MaxHitPoints>
+			<Flammability>0</Flammability>
+		</statBases>
+		<designationCategory>DotaRelicBuildings</designationCategory>
+		<researchPrerequisites>
+			<li>DotaTech_CrescentAstronomy</li>
+		</researchPrerequisites>
+	</ThingDef>
 </Defs>

@@ -20,6 +20,27 @@
 		<comps>
 			<li Class="RimDota.HediffCompProperties_DotaHero" />
 			<li Class="RimDota.HediffCompProperties_DotaInventory" />
+			<li Class="RimDota.HediffCompProperties_DotaSkills">
+				<skillPointCap>22</skillPointCap>
+				<skillPointsPerLevelUp>1</skillPointsPerLevelUp>
+				<talentPointLevels>
+					<li>10</li>
+					<li>15</li>
+					<li>20</li>
+					<li>25</li>
+					<li>27</li>
+					<li>28</li>
+					<li>29</li>
+					<li>30</li>
+				</talentPointLevels>
+				<secondaryTalentUnlockLevel>27</secondaryTalentUnlockLevel>
+				<attributePointCapacity>7</attributePointCapacity>
+				<attributePointCost>1</attributePointCost>
+				<attributeBonusPerPoint>2</attributeBonusPerPoint>
+				<normalSlotCount>3</normalSlotCount>
+				<derivedSlotCount>2</derivedSlotCount>
+				<ultimateSlotCount>1</ultimateSlotCount>
+			</li>
 		</comps>
 	</HediffDef>
 

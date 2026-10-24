@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<DotaTalentNodeDef Class="RimDota.DotaTalentNodeDef">
+		<defName>DotaTalent_T1_Left</defName>
+		<label>第1层左侧天赋</label>
+		<description>全属性 +5。</description>
+		<tier>1</tier>
+		<side>Left</side>
+		<requiredHeroLevel>10</requiredHeroLevel>
+		<allAttributeBonus>5</allAttributeBonus>
+	</DotaTalentNodeDef>
+	<DotaTalentNodeDef Class="RimDota.DotaTalentNodeDef">
+		<defName>DotaTalent_T1_Right</defName>
+		<label>第1层右侧天赋</label>
+		<description>全属性 +5。</description>
+		<tier>1</tier>
+		<side>Right</side>
+		<requiredHeroLevel>10</requiredHeroLevel>
+		<allAttributeBonus>5</allAttributeBonus>
+	</DotaTalentNodeDef>
+	<DotaTalentNodeDef Class="RimDota.DotaTalentNodeDef">
+		<defName>DotaTalent_T2_Left</defName>
+		<label>第2层左侧天赋</label>
+		<description>全属性 +10。</description>
+		<tier>2</tier>
+		<side>Left</side>
+		<requiredHeroLevel>15</requiredHeroLevel>
+		<allAttributeBonus>10</allAttributeBonus>
+	</DotaTalentNodeDef>
+	<DotaTalentNodeDef Class="RimDota.DotaTalentNodeDef">
+		<defName>DotaTalent_T2_Right</defName>
+		<label>第2层右侧天赋</label>
+		<description>全属性 +10。</description>
+		<tier>2</tier>
+		<side>Right</side>
+		<requiredHeroLevel>15</requiredHeroLevel>
+		<allAttributeBonus>10</allAttributeBonus>
+	</DotaTalentNodeDef>
+	<DotaTalentNodeDef Class="RimDota.DotaTalentNodeDef">
+		<defName>DotaTalent_T3_Left</defName>
+		<label>第3层左侧天赋</label>
+		<description>全属性 +15。</description>
+		<tier>3</tier>
+		<side>Left</side>
+		<requiredHeroLevel>20</requiredHeroLevel>
+		<allAttributeBonus>15</allAttributeBonus>
+	</DotaTalentNodeDef>
+	<DotaTalentNodeDef Class="RimDota.DotaTalentNodeDef">
+		<defName>DotaTalent_T3_Right</defName>
+		<label>第3层右侧天赋</label>
+		<description>全属性 +15。</description>
+		<tier>3</tier>
+		<side>Right</side>
+		<requiredHeroLevel>20</requiredHeroLevel>
+		<allAttributeBonus>15</allAttributeBonus>
+	</DotaTalentNodeDef>
+	<DotaTalentNodeDef Class="RimDota.DotaTalentNodeDef">
+		<defName>DotaTalent_T4_Left</defName>
+		<label>第4层左侧天赋</label>
+		<description>全属性 +20。</description>
+		<tier>4</tier>
+		<side>Left</side>
+		<requiredHeroLevel>25</requiredHeroLevel>
+		<allAttributeBonus>20</allAttributeBonus>
+	</DotaTalentNodeDef>
+	<DotaTalentNodeDef Class="RimDota.DotaTalentNodeDef">
+		<defName>DotaTalent_T4_Right</defName>
+		<label>第4层右侧天赋</label>
+		<description>全属性 +20。</description>
+		<tier>4</tier>
+		<side>Right</side>
+		<requiredHeroLevel>25</requiredHeroLevel>
+		<allAttributeBonus>20</allAttributeBonus>
+	</DotaTalentNodeDef>
+</Defs>

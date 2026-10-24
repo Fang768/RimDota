@@ -38,4 +38,50 @@
 			</li>
 		</comps>
 	</ThingDef>
+
+	<ThingDef ParentName="ResourceBase" Name="DotaUsableItemBase" Abstract="True">
+		<thingClass>ThingWithComps</thingClass>
+		<useHitPoints>true</useHitPoints>
+		<statBases>
+			<MaxHitPoints>80</MaxHitPoints>
+			<Mass>0.1</Mass>
+			<Flammability>0.2</Flammability>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Forbiddable" />
+		</comps>
+	</ThingDef>
+
+	<!-- 洗点药：清空技能位置与等级，返还技能等级消耗的技能点。配方暂不提供。 -->
+	<ThingDef ParentName="DotaUsableItemBase">
+		<defName>DotaRespecPotion</defName>
+		<label>洗点药</label>
+		<description>服用后清空所有 Dota 技能配置、技能等级、属性点投入和天赋选择，并返还对应的技能点与天赋点。英雄等级与经验不会重置。</description>
+		<graphicData>
+			<texPath>Things/Item/Drug/Penoxycyline</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<stackLimit>10</stackLimit>
+		<techLevel>Industrial</techLevel>
+		<thingCategories>
+			<li>Drugs</li>
+		</thingCategories>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MarketValue>500</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Usable">
+				<useJob>UseItem</useJob>
+				<useLabel>服用 {0_label}</useLabel>
+				<useDuration>60</useDuration>
+				<showUseGizmo>true</showUseGizmo>
+				<userMustHaveHediff>DotaHero</userMustHaveHediff>
+			</li>
+			<li Class="CompProperties_UseEffect">
+				<compClass>RimDota.CompUseEffect_ResetDotaSkills</compClass>
+			</li>
+			<li Class="CompProperties_UseEffectDestroySelf" />
+		</comps>
+	</ThingDef>
 </Defs>

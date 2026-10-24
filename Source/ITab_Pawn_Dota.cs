@@ -5,6 +5,7 @@ using Verse;
 namespace RimDota;
 
 /// <summary>Dota 英雄完整属性与装备页，只对 Dota 英雄显示。</summary>
+[StaticConstructorOnStartup]
 public class ITab_Pawn_Dota : ITab
 {
 	private static readonly Texture2D StrengthIcon =
@@ -24,19 +25,36 @@ public class ITab_Pawn_Dota : ITab
 	private enum DotaTabPage
 	{
 		Overview,
-		Equipment
+		Equipment,
+		Skills
 	}
 
 	private DotaTabPage currentPage;
+	private readonly DotaSkillsTabView skillsView = new DotaSkillsTabView();
 
 	public ITab_Pawn_Dota()
 	{
-		size = new Vector2(650f, 630f);
+		size = new Vector2(900f, 640f);
 		labelKey = "DotaTab";
 	}
 
 	public override bool IsVisible =>
 		SelPawn != null && DotaHeroUtil.IsHero(SelPawn);
+
+	protected override void CloseTab()
+	{
+		skillsView.DiscardDraft();
+		base.CloseTab();
+	}
+
+	public override void TabUpdate()
+	{
+		base.TabUpdate();
+		if (!StillValid)
+		{
+			skillsView.DiscardDraft();
+		}
+	}
 
 	protected override void FillTab()
 	{
@@ -54,7 +72,7 @@ public class ITab_Pawn_Dota : ITab
 			pawn.LabelShortCap + " · " + PrimaryAttributeLabel(comp.PrimaryAttribute));
 		Text.Font = GameFont.Small;
 
-		Rect tabRow = new Rect(rect.x, rect.y + 34f, 180f, 30f);
+		Rect tabRow = new Rect(rect.x, rect.y + 34f, 278f, 30f);
 		if (Widgets.ButtonText(
 			new Rect(tabRow.x, tabRow.y, 86f, tabRow.height),
 			currentPage == DotaTabPage.Overview ? "● 概览" : "概览"))
@@ -67,6 +85,12 @@ public class ITab_Pawn_Dota : ITab
 		{
 			currentPage = DotaTabPage.Equipment;
 		}
+		if (Widgets.ButtonText(
+			new Rect(tabRow.x + 184f, tabRow.y, 86f, tabRow.height),
+			currentPage == DotaTabPage.Skills ? "● 技能" : "技能"))
+		{
+			currentPage = DotaTabPage.Skills;
+		}
 
 		Rect content = new Rect(
 			rect.x,
@@ -77,9 +101,16 @@ public class ITab_Pawn_Dota : ITab
 		{
 			DrawOverview(content, pawn, comp);
 		}
-		else
+		else if (currentPage == DotaTabPage.Equipment)
 		{
 			DrawEquipment(content, pawn);
+		}
+		else
+		{
+			skillsView.Draw(
+				content,
+				pawn,
+				DotaHeroUtil.GetSkillsComp(pawn));
 		}
 	}
 

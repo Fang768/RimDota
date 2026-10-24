@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<AbilityDef Name="DotaSkillBase" Abstract="True">
+		<abilityClass>Ability</abilityClass>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<range>-1</range>
+		</verbProperties>
+		<hostile>false</hostile>
+		<casterMustBeCapableOfViolence>false</casterMustBeCapableOfViolence>
+		<aiCanUse>false</aiCanUse>
+		<targetRequired>false</targetRequired>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaSkill_Placeholder1</defName>
+		<label>技能1</label>
+		<description>技能1</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Basic</kind>
+				<maxLevel>4</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.20, 0.55, 0.72, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaSkill_Placeholder2</defName>
+		<label>技能2</label>
+		<description>技能2</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Basic</kind>
+				<maxLevel>4</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.18, 0.62, 0.48, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaSkill_Placeholder3</defName>
+		<label>技能3</label>
+		<description>技能3</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Basic</kind>
+				<maxLevel>4</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.54, 0.38, 0.72, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaSkill_Placeholder4</defName>
+		<label>技能4</label>
+		<description>技能4</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Basic</kind>
+				<maxLevel>4</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.72, 0.48, 0.24, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaSkill_Placeholder5</defName>
+		<label>技能5</label>
+		<description>技能5</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Basic</kind>
+				<maxLevel>4</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.66, 0.30, 0.30, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaSkill_Placeholder6</defName>
+		<label>技能6</label>
+		<description>技能6</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Basic</kind>
+				<maxLevel>4</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.36, 0.50, 0.74, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaUltimate_Placeholder1</defName>
+		<label>奥义1</label>
+		<description>奥义1</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Ultimate</kind>
+				<maxLevel>3</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<levelRequiredHeroLevels>
+					<li>6</li>
+					<li>12</li>
+					<li>18</li>
+				</levelRequiredHeroLevels>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.78, 0.56, 0.18, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaUltimate_Placeholder2</defName>
+		<label>奥义2</label>
+		<description>奥义2</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Ultimate</kind>
+				<maxLevel>3</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<levelRequiredHeroLevels>
+					<li>6</li>
+					<li>12</li>
+					<li>18</li>
+				</levelRequiredHeroLevels>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.74, 0.30, 0.52, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+
+	<AbilityDef ParentName="DotaSkillBase">
+		<defName>DotaUltimate_Placeholder3</defName>
+		<label>奥义3</label>
+		<description>奥义3</description>
+		<modExtensions>
+			<li Class="RimDota.DotaSkillExtension">
+				<kind>Ultimate</kind>
+				<maxLevel>3</maxLevel>
+				<manaCosts>
+					<li>50</li>
+					<li>50</li>
+					<li>50</li>
+				</manaCosts>
+				<levelRequiredHeroLevels>
+					<li>6</li>
+					<li>12</li>
+					<li>18</li>
+				</levelRequiredHeroLevels>
+				<pointCostPerLevel>1</pointCostPerLevel>
+				<isPlaceholder>true</isPlaceholder>
+				<placeholderColor>(0.60, 0.28, 0.22, 1)</placeholderColor>
+				<startsInCommonPool>true</startsInCommonPool>
+			</li>
+		</modExtensions>
+	</AbilityDef>
+</Defs>

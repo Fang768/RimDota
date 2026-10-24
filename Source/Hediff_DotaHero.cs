@@ -92,21 +92,30 @@ public class HediffComp_DotaHero : HediffComp
 
 	public float Strength
 	{
-		get => strength + EquippedBonus(DotaDefOf.DotaStrengthBonus);
+		get => strength
+			+ EquippedBonus(DotaDefOf.DotaStrengthBonus)
+			+ SkillsAttributeBonus;
 		set => strength = value < 0f ? 0f : value;
 	}
 
 	public float Agility
 	{
-		get => agility + EquippedBonus(DotaDefOf.DotaAgilityBonus);
+		get => agility
+			+ EquippedBonus(DotaDefOf.DotaAgilityBonus)
+			+ SkillsAttributeBonus;
 		set => agility = value < 0f ? 0f : value;
 	}
 
 	public float Intelligence
 	{
-		get => intelligence + EquippedBonus(DotaDefOf.DotaIntelligenceBonus);
+		get => intelligence
+			+ EquippedBonus(DotaDefOf.DotaIntelligenceBonus)
+			+ SkillsAttributeBonus;
 		set => intelligence = value < 0f ? 0f : value;
 	}
+
+	private float SkillsAttributeBonus =>
+		DotaHeroUtil.GetSkillsComp(Pawn)?.AllAttributeBonus ?? 0f;
 
 	private float EquippedBonus(StatDef stat)
 	{
@@ -193,6 +202,7 @@ public class HediffComp_DotaHero : HediffComp
 		experience = 0f;
 		initialSetupComplete = true;
 		mana = MaxMana;
+		DotaHeroUtil.GetSkillsComp(Pawn)?.NotifyHeroLevelChanged();
 		NotifyHeroStatsChanged();
 	}
 
@@ -225,6 +235,7 @@ public class HediffComp_DotaHero : HediffComp
 		{
 			experience = DotaHeroLeveling.TotalExperienceForLevel(DotaHeroLeveling.MaxLevel);
 		}
+		DotaHeroUtil.GetSkillsComp(Pawn)?.NotifyHeroLevelChanged();
 		NotifyHeroStatsChanged();
 		if (heroLevel > startingLevel && Pawn != null)
 		{
@@ -233,6 +244,32 @@ public class HediffComp_DotaHero : HediffComp
 				Pawn,
 				MessageTypeDefOf.PositiveEvent);
 		}
+	}
+
+	public bool DebugLevelUp()
+	{
+		if (!initialSetupComplete || heroLevel >= DotaHeroLeveling.MaxLevel)
+		{
+			return false;
+		}
+		int previousLevel = heroLevel;
+		float nextLevelExperience =
+			DotaHeroLeveling.TotalExperienceForLevel(heroLevel + 1);
+		AddExperience(Mathf.Max(1f, nextLevelExperience - experience));
+		return heroLevel > previousLevel;
+	}
+
+	public bool DebugSetLevelToMax()
+	{
+		if (!initialSetupComplete || heroLevel >= DotaHeroLeveling.MaxLevel)
+		{
+			return false;
+		}
+		int previousLevel = heroLevel;
+		float maxExperience =
+			DotaHeroLeveling.TotalExperienceForLevel(DotaHeroLeveling.MaxLevel);
+		AddExperience(Mathf.Max(1f, maxExperience - experience));
+		return heroLevel > previousLevel;
 	}
 
 	private void NotifyHeroStatsChanged()
@@ -615,6 +652,10 @@ public class HediffComp_DotaHero : HediffComp
 		Scribe_Values.Look(ref bonusSpellLifesteal, "bonusSpellLifesteal", 0f);
 		Scribe_Values.Look(ref pendingHealing, "pendingHealing", 0f);
 		Scribe_Values.Look(ref healingMultiplier, "healingMultiplier", 1f);
+		if (Scribe.mode == LoadSaveMode.PostLoadInit)
+		{
+			DotaHeroUtil.GetSkillsComp(Pawn)?.SyncProgression();
+		}
 	}
 
 	public override IEnumerable<Gizmo> CompGetGizmos()

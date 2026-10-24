@@ -82,6 +82,21 @@
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
+		<defName>DotaTech_CrescentAstronomy</defName>
+		<label>邪月天体学</label>
+		<description>研究邪月天体的运行规律，解锁邪月观测阵列。</description>
+		<baseCost>1500</baseCost>
+		<techLevel>Industrial</techLevel>
+		<tab>DotaResearchTab</tab>
+		<researchViewX>2</researchViewX>
+		<researchViewY>8</researchViewY>
+		<prerequisites>
+			<li>DotaTech1</li>
+			<li>MicroelectronicsBasics</li>
+		</prerequisites>
+	</ResearchProjectDef>
+
+	<ResearchProjectDef>
 		<defName>DotaTech_RelicArms</defName>
 		<label>遗迹武装</label>
 		<description>解锁遗迹武装的制造。</description>

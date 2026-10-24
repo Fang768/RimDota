@@ -60,6 +60,8 @@ public static class DotaDefOf
 
 	public static ThingDef DotaRelicFragment;
 
+	public static ThingDef DotaRespecPotion;
+
 	public static ResearchProjectDef DotaTech1;
 
 	public static HediffDef Dota_ExampleBuff;
